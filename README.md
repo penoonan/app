@@ -47,7 +47,7 @@ A few variables automatically get passed to every view: `nonce_name`, `nonce_act
 
 ##Models
 
-The base model has access to the `\Sketch\WpApiWrapper` class as well as the `global $wpbd` object. That way, you can fetch your posts and database objects however you like, whether with normal Wordpress functions (e.g., `get_posts()`)or using something like `$wpdb->get_results($your_well_prepared_query)`.
+The base model has access to the `\Sketch\WpApiWrapper` class as well as `\Sketch\WpDbWrapper`. That way, you can fetch your posts and database objects however you like, whether with normal Wordpress functions (e.g., `$this->wp->get_posts()`)or using something like `$this->wpdb->get_results($your_well_prepared_query)`.
 
 
 
