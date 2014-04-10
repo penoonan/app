@@ -31,6 +31,8 @@ Right now, the router is very simple. It can only match routes having identical 
 
 `$router->get(array('page' => 'my_menu_slug', 'action' => 'edit', 'id' => '{int}'), 'foo@edit');`
 
+Since the first given matching route will be selected, be sure to define your least specific routes last.
+
 ##Unit Testing
 
 The purpose of Sketch is to enable Wordpress developers to more easily build testable applications. Ironically, as of this writing, Sketch itself has 0% code coverage (working on that!).
