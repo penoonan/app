@@ -35,7 +35,7 @@ Since the first given matching route will be selected, be sure to define your le
 
 ##Unit Testing
 
-The purpose of Sketch is to enable Wordpress developers to more easily build testable applications. Ironically, as of this writing, Sketch itself has 0% code coverage (working on that!).
+One of the main goals of Sketch is to enable Wordpress developers to more easily build testable applications. Ironically, as of this writing, Sketch itself has 0% code coverage (working on that!).
 
 Unit testing in Wordpress has always been a huge pain, because you can't use any Wordpress function without instantiating the entire Wordpress application. With Sketch, if any of your classes needs to use a Wordpress function, just pass that class an instance of `\Sketch\WpApiWrapper`. That class contains precisely one function, `__call($method, $arguments)`, which simply calls the method passed to it. So instead of using `get_post_meta($id, 'meta_key', true);` in your class, you'd use `$this->wp->get_post_meta($id, 'meta_key', true);`.
 
