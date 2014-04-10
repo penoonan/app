@@ -14,7 +14,7 @@ Take a look at the controllers, menus, views and routes in the sample app. Feels
 
 ##Menus
 
-Normally when you create a Wordpress menu, you use the `add_menu_page()` function and pass a callback that defines everything the menu should display. With Sketch, you create a menu by extending the `\Sketch\WpMenuAbstract` (or `\Sketch\WpSubmenuAbstract`) class. Define the menu title, slug and permissions etc as properties of the class. Sketch's menu classes have a `\Sketch\QueryStringRouter` class as a dependency, and `QueryStringRouter->resolve()` is the callback passed to Wordpress when the menu is created at runtime.
+Normally when you create a Wordpress menu, you use the `add_menu_page()` function and pass a callback that defines everything the menu should display. With Sketch, you create a menu by extending the `\Sketch\WpMenuAbstract` or `\Sketch\WpSubmenuAbstract` class. Define the menu title, slug and permissions etc as properties of the class. Sketch's menu classes have a `\Sketch\QueryStringRouter` class as a dependency, and `QueryStringRouter->resolve()` is the callback passed to Wordpress when the menu is created at runtime.
 
 So define your menu classes like you see in the sample, and instantiate them in `index.php` by calling `$app->make('\MyMenu')`;
 
