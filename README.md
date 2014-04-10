@@ -4,7 +4,7 @@ Sketch is a teeny-tiny framework for creating well-structured MVC applications i
 
 Right now Sketch is focused on making it easier to create menu pages where site admins can work with data. We'll add support for more features (custom post types, taxonomies, metaboxes, etc) as we go along.
 
-Sketch takes an Object-Oriented approach to interacting with Wordpress. It makes heavy use of [Laravel's IoC](http://laravel.com/docs/ioc) container, [Symfony's HttpFoundation Request object](http://symfony.com/doc/current/components/http_foundation/introduction.html), and the [Plates](http://platesphp.com/) templating system.
+Sketch takes an Object-Oriented approach to interacting with Wordpress. It makes heavy use of [Laravel's IoC](http://laravel.com/docs/ioc) container, [Symfony's Request](http://symfony.com/doc/current/components/http_foundation/introduction.html) object, and the [Plates](http://platesphp.com/) templating system.
 
 Sketch is meant to work well in environments lacking command-line access. Essentially all this means is that Sketch's default production dependencies are minimal enough that you don't need to sweat having them under version control.
 
