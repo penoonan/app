@@ -27,6 +27,10 @@ E.g., `$router->get(array('page' => 'my_menu_slug', 'action' => 'create'), 'home
 
 The above example will cause Sketch to look for the class `HomeController`, and run its `index()` method.  You can also use the methods `$router->post()`, or `$router->any()`;
 
+Right now, the router is very simple. It can only match routes having identical strings, or `{int}` variables. So if you wanted to edit a particular "foo" item, your route might look something like this:
+
+`$router->get(array('page' => 'my_menu_slug', 'action' => 'edit', 'id' => '{int}'), 'foo@edit');`
+
 ##Unit Testing
 
 The purpose of Sketch is to enable Wordpress developers to more easily build testable applications. Ironically, as of this writing, Sketch itself has 0% code coverage (working on that!).
