@@ -23,13 +23,13 @@ Define your routes in `app/routes.php` (Sketch is heavily inspired by Laravel, y
 
 Wordpress's backend admin navigation is almost entirely based on the contents of the query string, so Sketch's router is configured by passing in an associative array of the query string variables that need to be matched. In addition, you will also pass the name of the controller and method that should handle requests matching the route.
 
-E.g., `$router->get(array('page' => 'my_menu_slug', 'action' => 'create'), 'home@index');`
+E.g., `$router->get(array('page' => 'my_menu_slug', 'action' => 'create'), 'home@create');`
 
-The above example will cause Sketch to look for the class `HomeController`, and run its `index()` method.  You can also use the methods `$router->post()`, or `$router->any()`;
+The above example will cause Sketch to look for the class `HomeController`, and run its `index()` method.  Currently this is the only valid syntax for designating a controller. You can also use the methods `$router->post()`, or `$router->any()` to handle GET and POST requests.
 
 Right now, the router is very simple. It can only match routes having identical strings, or `{int}` variables. So if you wanted to edit a particular "foo" item, your route might look something like this:
 
-`$router->get(array('page' => 'my_menu_slug', 'action' => 'edit', 'id' => '{int}'), 'foo@edit');`
+`$router->get(array('page' => 'my_foo_menu_slug', 'action' => 'edit', 'id' => '{int}'), 'foo@edit');`
 
 Since the first given matching route will be selected, be sure to define your least specific routes last.
 
