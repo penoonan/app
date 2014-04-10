@@ -5,17 +5,17 @@ namespace Sketch;
 class WpBaseModel {
 
     /**
-     * @var wpdb
+     * @var WpDbWrapper
      */
-    private $wpdb;
+    protected $wpdb;
     /**
      * @var WpApiWrapper
      */
-    private $wp;
+    protected $wp;
 
-    public function __construct(wpdb $wpdb, WpApiWrapper $wp)
+    public function __construct(WpDbWrapper $wpdb, WpApiWrapper $wp)
     {
         $this->wpdb = $wpdb;
         $this->wp = $wp;
     }
-} 
+}

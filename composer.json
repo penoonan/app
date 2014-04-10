@@ -2,7 +2,8 @@
     "autoload": {
         "classmap": [
             "app/controllers",
-            "app/menus"
+            "app/menus",
+            "app/models"
         ],
         "psr-4": {
             "MyApp\\": "lib/MyApp",

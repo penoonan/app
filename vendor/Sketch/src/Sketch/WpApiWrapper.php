@@ -14,7 +14,7 @@ class WpApiWrapper {
 
     public function __call($method, $arguments)
     {
-        call_user_func($method, $arguments);
+        //call_user_func($method, $arguments);
         return call_user_func_array($method, $arguments);
     }
 
