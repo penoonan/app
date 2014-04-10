@@ -1,0 +1,18 @@
+{
+    "autoload": {
+        "classmap": [
+            "app/controllers",
+            "app/menus"
+        ],
+        "psr-4": {
+            "MyApp\\": "lib/MyApp",
+            "Sketch\\": "vendor/Sketch/src/Sketch"
+        }
+    },
+    "require": {
+        "symfony/http-foundation": "2.3.*@dev",
+        "vlucas/valitron": "dev-master",
+        "illuminate/container": "4.1.*@dev",
+        "league/plates": "dev-master"
+    }
+}

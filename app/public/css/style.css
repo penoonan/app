@@ -1,0 +1,22 @@
+input[type="button"], input[type="button"]:focus, input[type="button"]:active,
+button, button:focus, button:active {
+    /* Remove all decorations to look like normal text */
+    background: none;
+    border: none;
+    display: inline;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    outline-offset: 0;
+    /* Additional styles to look like a link */
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+/* Remove extra space inside buttons in Firefox */
+input[type="button"]::-moz-focus-inner,
+button::-moz-focus-inner {
+    border: none;
+    padding: 0;
+}
