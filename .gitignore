@@ -1,5 +1,5 @@
-vendor/composer
-vendor/illuminate
-vendor/league
-vendor/symfony
-vendor/vlucas
+/vendor/composer
+/vendor/illuminate
+/vendor/league
+/vendor/symfony
+/vendor/vlucas
