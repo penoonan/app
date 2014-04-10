@@ -1,8 +1,8 @@
 #Sketch
 
-Sketch is a framework for creating well-structured MVC (more or less) applications in Wordpress. It's not on Packagist yet, so for now if you want to use it, just clone this repo somewhere into your project. Then `require "/path/to/Sketch/index.php"` in your plugin / app / functions.php / whateverplace.
+Sketch is a teeny-tiny framework for creating well-structured MVC applications in Wordpress. It's not on Packagist yet, so for now if you want to use it, just clone this repo somewhere into your project. Then `require "/path/to/Sketch/index.php"` in your plugin / app / functions.php / whateverplace.
 
-Right now it's focused on making it easier to create menu pages where site admins can work with data. We'll add support for more features (custom post types, taxonomies, metaboxes, etc) as we go along.
+Right now Sketch is focused on making it easier to create menu pages where site admins can work with data. We'll add support for more features (custom post types, taxonomies, metaboxes, etc) as we go along.
 
 Sketch takes an Object-Oriented approach to interacting with Wordpress. It makes heavy use of [Laravel's IoC](http://laravel.com/docs/ioc) container, [Symfony's HttpFoundation Request object](http://symfony.com/doc/current/components/http_foundation/introduction.html), and the [Plates](http://platesphp.com/) templating system.
 
