@@ -63,7 +63,7 @@ Say you want to make a controller that grabs "page" from the query string (i.e.,
         public function index()
         {
             $data = array(
-                'page' = $this->request->query->get('page')
+                'page' => $this->request->query->get('page')
             );
 
             $this->render('home', $data);
