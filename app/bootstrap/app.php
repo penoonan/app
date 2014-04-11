@@ -24,7 +24,7 @@ $app->bind('League\Plates\Template', function() use ($app) {
       return $engine->makeTemplate();
   });
 
-$app->bind('Sketch\ControllerResolver', function() use($app) {
+$app->bind('Sketch\Dispatcher', function() use($app) {
       return new \Sketch\Dispatcher($app, $app->make('League\Plates\Template'));
 });
 

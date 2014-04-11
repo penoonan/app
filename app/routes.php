@@ -2,7 +2,7 @@
 //Configure the router
 $app['router'] = function($app) {
     $router = new \Sketch\QueryStringRouter(
-      $app->make('Sketch\ControllerResolver'),
+      $app->make('Sketch\Dispatcher'),
       $app->make('Symfony\Component\HttpFoundation\Request')
     );
 
