@@ -19,5 +19,3 @@ $app['router'] = function($app) {
 
     return $router;
 };
-
-$app->bind('Sketch\RouterInterface', function() use($app) { return $app['router']; });
