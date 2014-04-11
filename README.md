@@ -36,6 +36,7 @@ If you need to add any actions associated with the menu (i.e., enqueueing public
 Define your menu classes like you see in the `app/menus`, and instantiate them in `index.php` by calling `$app->make('\MyMenu')`;
 
 ##Routes
+
 Sketch's router is only intended to create navigation in the Wordpress admin backend. For now, it's not interested in creating front-end routes or "hijacking" Wordpress' native routing system. Instead, it's designed to play nicely with what's already there.
 
 Wordpress's backend admin navigation is almost entirely based on the contents of the query string, so Sketch's router is configured by passing in an associative array of the query string variables that need to be matched. In addition, you will also pass the name of the controller and method that should handle requests matching the route.
@@ -48,7 +49,7 @@ Right now, the router is very simple. It can only match routes having identical 
 
 `$router->get(array('page' => 'my_foo_menu_slug', 'action' => 'edit', 'id' => '{int}'), 'foo@edit');`
 
-Since the first given matching route will be selected, be sure to define your least specific routes last. Define your routes in `app/routes.php`. Make sure to put your routes between the comments that say "START ROUTES!" and "END ROUTES!", and try not to touch the other stuff unless you really know what you're doing.
+Define your routes in `app/routes.php`, and be sure to put your routes between the comments that say "START ROUTES!" and "END ROUTES!". Try not to touch the other stuff unless you really know what you're doing. Since the first given matching route will be selected, be sure to define your most specific routes first and your least specific routes last.
 
 
 ##Controllers
