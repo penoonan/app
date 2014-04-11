@@ -25,7 +25,7 @@ Sketch's router is only intended to create navigation in the Wordpress admin bac
 
 Wordpress's backend admin navigation is almost entirely based on the contents of the query string, so Sketch's router is configured by passing in an associative array of the query string variables that need to be matched. In addition, you will also pass the name of the controller and method that should handle requests matching the route.
 
-E.g., `$router->get(array('page' => 'my_menu_slug', 'action' => 'create'), 'home@create');`
+E.g., `$router->get(array('page' => 'my_menu_slug'), 'home@index');`
 
 The above example will cause Sketch to look for the class `HomeController`, and run its `index()` method.  Currently this is the only valid syntax for designating a controller. You can also use the methods `$router->post()`, or `$router->any()` to handle GET and POST requests.
 
