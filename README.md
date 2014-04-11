@@ -10,13 +10,13 @@ Sketch has a very small footprint. It's intended to work well in environments la
 
 ##Getting Started
 
-Sketch is not on Packagist yet, so for now if you want to use it, clone this repo somewhere into your Wordpress project. Then `require "/path/to/Sketch/index.php"` in your plugin / app / functions.php / whateverplace and run `composer update`.
+Sketch is not on Packagist yet, so for now if you want to use it, clone this repo somewhere into your Wordpress project. Run `composer update`, then `require "/path/to/Sketch/index.php"` in your plugin / app / functions.php / whateverplace.
 
 Take a look at the controllers, menus, views and routes in the sample app. Feels almost like a proper MVC configuration, doesn't it?
 
 ##Unit Testing
 
-One of the main goals of Sketch is to enable Wordpress developers to more easily build testable applications. Ironically, as of this writing, Sketch itself has 0% code coverage (working on that!).
+One of the main goals of Sketch is to enable Wordpress developers to more easily build testable applications.
 
 Unit testing in Wordpress has always been a huge pain, because you can't use any Wordpress function without instantiating the entire Wordpress application. With Sketch, if any of your classes needs to use a Wordpress function, pass that class an instance of `\Sketch\WpApiWrapper`. That class contains precisely one function, `__call($method, $arguments)`, which simply calls the method passed to it. So instead of using `get_post_meta($id, 'meta_key', true);` in your class, you'd use `$this->wp->get_post_meta($id, 'meta_key', true);`.
 
