@@ -53,7 +53,7 @@ Define your routes in `app/routes.php`, and be sure to put your routes between t
 
 ##Controllers
 
-Controllers come with an instance of the [Plates](http://www.platesphp.com) template system and the Symfony [Request object](http://symfony.com/doc/current/components/http_foundation/introduction.html) by default. For any other dependencies, use constructor injection and the IoC container will pass them in automatically. Of course, if you are passing in an Interface as a dependency, be sure to use `$app->bind()` in your index.php file to specify which concrete class should be used.
+Controllers come with an instance of the [Plates](http://www.platesphp.com) template system and the [Symfony Request](http://symfony.com/doc/current/components/http_foundation/introduction.html) object by default. For any other dependencies, use constructor injection and the IoC container will pass them in automatically. Of course, if you are passing in an Interface as a dependency, be sure to use `$app->bind()` in your index.php file to specify which concrete class should be used.
 
 Say you want to make a controller that grabs `page` from the query string (i.e., the menu slug) and passes it to the view. Here's how you would do that:
 
