@@ -47,9 +47,25 @@ That simple layer of abstraction is all you need to be able to mock the entire W
 
 Controllers are instantiated with an instance of the [Plates](http://www.platesphp.com) template system and the Symfony [Request object](http://symfony.com/doc/current/components/http_foundation/introduction.html) by default. For any other dependencies, use constructor injection and the IoC container will pass them in automatically. Of course, if you are passing in an Interface as a dependency, be sure to use `$app->bind()` in your index.php file to specify which concrete class should be used.
 
+Say you want to make a controller that grabs "page" from the query string (i.e., the menu slug) and passes it to the view. Here's how you would do that:
+
+    Class HomeController extends WpBaseController {
+
+        public function index()
+        {
+            $data = array(
+                'page' = $this->request->query->get('page')
+            );
+
+            $this->render('home', $data);
+        }
+    }
+
 ##Views
 
 See the [Plates](http://www.platesphp.com) documentation to learn about how to use the views.
+
+For a view corresponding to the above controller example, you'd just need to create a file called `app/views/home.php`. To output the `page` variable, just use `<?= $this->page ?>` anywhere in your template.
 
 A few variables automatically get passed to every view: `nonce_name`, `nonce_action`, `message`, and `errors`. In addition, Sketch comes with a few simple Plates extensions, most notably the `wp()` function, which provides mockable access to all Wordpress' globally namespaced functions. Pass the name of the function as the first argument, and an array of your parameters as the second.
 
