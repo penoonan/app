@@ -51,10 +51,9 @@ Right now, the router is very simple. It can only match routes having identical 
 
 Define your routes in `app/routes.php`, and be sure to put your routes between the comments that say "START ROUTES!" and "END ROUTES!". Try not to touch the other stuff unless you really know what you're doing. Since the first given matching route will be selected, define your most specific routes first and your least specific routes last.
 
-
 ##Controllers
 
-Controllers are instantiated with an instance of the [Plates](http://www.platesphp.com) template system and the Symfony [Request object](http://symfony.com/doc/current/components/http_foundation/introduction.html) by default. For any other dependencies, use constructor injection and the IoC container will pass them in automatically. Of course, if you are passing in an Interface as a dependency, be sure to use `$app->bind()` in your index.php file to specify which concrete class should be used.
+Controllers come with an instance of the [Plates](http://www.platesphp.com) template system and the Symfony [Request object](http://symfony.com/doc/current/components/http_foundation/introduction.html) by default. For any other dependencies, use constructor injection and the IoC container will pass them in automatically. Of course, if you are passing in an Interface as a dependency, be sure to use `$app->bind()` in your index.php file to specify which concrete class should be used.
 
 Say you want to make a controller that grabs `page` from the query string (i.e., the menu slug) and passes it to the view. Here's how you would do that:
 
