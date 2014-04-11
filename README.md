@@ -57,7 +57,7 @@ Controllers come with an instance of the [Plates](http://www.platesphp.com) temp
 
 Say you want to make a controller that grabs `page` from the query string (i.e., the menu slug) and passes it to the view. Here's how you would do that:
 
-    Class HomeController extends WpBaseController {
+    Class HomeController extends \Sketch\WpBaseController {
 
         public function index()
         {
