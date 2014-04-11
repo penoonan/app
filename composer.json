@@ -13,6 +13,7 @@
     "require": {
         "symfony/http-foundation": "2.3.*@dev",
         "illuminate/container": "4.1.*@dev",
-        "league/plates": "dev-master"
+        "league/plates": "dev-master",
+        "vlucas/valitron": "dev-master"
     }
 }

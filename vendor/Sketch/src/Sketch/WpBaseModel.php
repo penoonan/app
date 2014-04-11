@@ -13,9 +13,15 @@ class WpBaseModel {
      */
     protected $wp;
 
-    public function __construct(WpDbWrapper $wpdb, WpApiWrapper $wp)
+    /**
+     * @var WpQueryFactory
+     */
+    protected $wp_query;
+
+    public function __construct(WpDbWrapper $wpdb, WpApiWrapper $wp, WpQueryFactory $wp_query)
     {
         $this->wpdb = $wpdb;
         $this->wp = $wp;
+        $this->wp_query = $wp_query;
     }
 }

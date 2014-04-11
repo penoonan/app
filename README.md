@@ -1,14 +1,17 @@
 #Sketch
 
-Sketch is a teeny-tiny framework for creating well-structured MVC applications in Wordpress. It's not on Packagist yet, so for now if you want to use it, just clone this repo somewhere into your project. Then `require "/path/to/Sketch/index.php"` in your plugin / app / functions.php / whateverplace and run `composer update`.
+Sketch is a tiny framework for creating well-structured MVC applications in Wordpress.
+
+Sketch was originally designed to work well in environments lacking command-line access. Essentially all this means is that Sketch's default production dependencies are minimal enough that you don't need to sweat having them under version control.
 
 Right now Sketch is focused on making it easier to create menu pages where site admins can work with data. We'll add support for more features (custom post types, taxonomies, metaboxes, etc) as we go along.
 
 Sketch takes an Object-Oriented approach to interacting with Wordpress. It makes heavy use of [Laravel's IoC](http://laravel.com/docs/ioc) container, [Symfony's Request](http://symfony.com/doc/current/components/http_foundation/introduction.html) object, and the [Plates](http://platesphp.com/) templating system.
 
-Sketch is meant to work well in environments lacking command-line access. Essentially all this means is that Sketch's default production dependencies are minimal enough that you don't need to sweat having them under version control.
 
 ##Getting Started
+
+Sketch is not on Packagist yet, so for now if you want to use it, just clone this repo somewhere into your project Wordpress project. Then `require "/path/to/Sketch/index.php"` in your plugin / app / functions.php / whateverplace and run `composer update`.
 
 Take a look at the controllers, menus, views and routes in the sample app. Feels almost like a proper MVC configuration, doesn't it?
 
@@ -16,10 +19,10 @@ Take a look at the controllers, menus, views and routes in the sample app. Feels
 
 Normally when you create a Wordpress menu, you use the `add_menu_page()` function and pass a callback that defines everything the menu should display. With Sketch, you create a menu by extending the `\Sketch\WpMenuAbstract` or `\Sketch\WpSubmenuAbstract` class. Define the menu title, slug and permissions etc as properties of the class. Sketch's menu classes have a `\Sketch\QueryStringRouter` class as a dependency, and `QueryStringRouter->resolve()` is the callback passed to Wordpress when the menu is created at runtime.
 
-So define your menu classes like you see in the sample, and instantiate them in `index.php` by calling `$app->make('\MyMenu')`;
+So define your menu classes like you see in the `app/menus`, and instantiate them in `index.php` by calling `$app->make('\MyMenu')`;
 
 ##Routes
-Define your routes in `app/routes.php` (Sketch is heavily inspired by Laravel, you may have noticed). Make sure to put your routes between the comments that say "START ROUTES!" and "END ROUTES!". It's not the prettiest thing, but it's easy and it works. Fair enough?
+Sketch's router is only intended to create navigation in the Wordpress admin backend. For now, it's not interested in creating front-end routes or "hijacking" Wordpress' native routing system. Instead, Sketch's router is designed specifically to play nicely within the confines of the Wordpress backend.
 
 Wordpress's backend admin navigation is almost entirely based on the contents of the query string, so Sketch's router is configured by passing in an associative array of the query string variables that need to be matched. In addition, you will also pass the name of the controller and method that should handle requests matching the route.
 
@@ -31,7 +34,7 @@ Right now, the router is very simple. It can only match routes having identical 
 
 `$router->get(array('page' => 'my_foo_menu_slug', 'action' => 'edit', 'id' => '{int}'), 'foo@edit');`
 
-Since the first given matching route will be selected, be sure to define your least specific routes last.
+Since the first given matching route will be selected, be sure to define your least specific routes last. Define your routes in `app/routes.php`. Make sure to put your routes between the comments that say "START ROUTES!" and "END ROUTES!", and try not to touch the other stuff unless you really know what you're doing.
 
 ##Unit Testing
 
@@ -55,5 +58,8 @@ A few variables automatically get passed to every view: `nonce_name`, `nonce_act
 
 The base model has access to the `\Sketch\WpApiWrapper` class as well as `\Sketch\WpDbWrapper`. That way, you can fetch your posts and database objects however you like, whether with normal Wordpress functions (e.g., `$this->wp->get_posts()`)or using something like `$this->wpdb->get_results($your_well_prepared_query)`.
 
+##Validation
+
+By default, Sketch uses the [Valitron](http://github.com/vlucas/valitron) validation class. You can use Valitron directly in any class, and Sketch also provides a `\Sketch\ValidatorFactory` class so that you can more easily create validator instances or set up validation as a service.
 
 

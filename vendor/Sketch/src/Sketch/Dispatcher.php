@@ -6,7 +6,7 @@ use Illuminate\Container\Container;
 use League\Plates\Template;
 use Symfony\Component\HttpFoundation\Request;
 
-class ControllerResolver {
+class Dispatcher {
 
     /**
      * @var \Illuminate\Container\Container
@@ -57,14 +57,4 @@ class ControllerResolver {
         return $controller_class;
     }
 
-    public function with($args)
-    {
-        if (is_array($args)) {
-            $this->args = array_merge($this->args, $args);
-        } else {
-            array_push($this->args, $args);
-        }
-
-        return $this;
-    }
 }

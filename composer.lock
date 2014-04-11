@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a20e8dd0126d4ae88eadb516b1da55e9",
+    "hash": "772c30282101a8a52cbfab1c4e224693",
     "packages": [
         {
             "name": "illuminate/container",
@@ -147,6 +147,49 @@
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
             "time": "2014-04-10 12:53:44"
+        },
+        {
+            "name": "vlucas/valitron",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vlucas/valitron.git",
+                "reference": "430a8324ece573e338ef68cb68e368f66fddb0d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vlucas/valitron/zipball/430a8324ece573e338ef68cb68e368f66fddb0d7",
+                "reference": "430a8324ece573e338ef68cb68e368f66fddb0d7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Valitron": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Vance Lucas",
+                    "email": "vance@vancelucas.com",
+                    "homepage": "http://www.vancelucas.com"
+                }
+            ],
+            "description": "Simple, elegant, stand-alone validation library with NO dependencies",
+            "homepage": "http://github.com/vlucas/valitron",
+            "keywords": [
+                "valid",
+                "validation",
+                "validator"
+            ],
+            "time": "2014-04-10 15:53:37"
         }
     ],
     "packages-dev": [
@@ -159,7 +202,8 @@
     "stability-flags": {
         "symfony/http-foundation": 20,
         "illuminate/container": 20,
-        "league/plates": 20
+        "league/plates": 20,
+        "vlucas/valitron": 20
     },
     "platform": [
 

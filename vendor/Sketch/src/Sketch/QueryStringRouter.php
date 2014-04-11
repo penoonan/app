@@ -8,18 +8,18 @@ class QueryStringRouter implements RouterInterface {
 
     protected $routes = array();
     /**
-     * @var ControllerResolver
+     * @var Dispatcher
      */
-    protected $resolver;
+    protected $dispatcher;
 
     /**
      * @var \Symfony\Component\HttpFoundation\Request
      */
     protected $request;
 
-    public function __construct(ControllerResolver $resolver, Request $request)
+    public function __construct(Dispatcher $dispatcher, Request $request)
     {
-        $this->resolver = $resolver;
+        $this->dispatcher = $dispatcher;
         $this->request = $request;
     }
 
@@ -62,12 +62,17 @@ class QueryStringRouter implements RouterInterface {
                     }
                     $i++;
                     if ($i === count($route['params'])){
-                        return $this->resolver->dispatch($this->request, $route['controller']);
+                        return $this->dispatch($this->request, $route['controller']);
                     }
                 }
             }
         }
         return false;
+    }
+
+    protected function dispatch(Request $request, $controller)
+    {
+        return $this->dispatcher->dispatch($request, $controller);
     }
     
     
