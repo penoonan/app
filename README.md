@@ -72,11 +72,11 @@ Say you want to make a controller that grabs `page` from the query string (i.e.,
 
 ##Views
 
-See the [Plates](http://www.platesphp.com) documentation to learn about how to use the views.
-
 For a view corresponding to the above controller example, create a file called `app/views/home.php`. To output the `page` variable, use `<?= $this->page ?>` anywhere in your template.
 
 A few variables automatically get passed to every view: `nonce_name`, `nonce_action`, `message`, and `errors`. In addition, Sketch comes with a few simple Plates extensions, most notably the `wp()` function, which provides mockable access to all Wordpress' globally namespaced functions. Pass the name of the function as the first argument, and an array of your parameters as the second.
+
+See the [Plates](http://www.platesphp.com) documentation to learn more about what you can do with views.
 
 ##Models
 
