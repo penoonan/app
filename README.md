@@ -14,9 +14,24 @@ Sketch is not on Packagist yet, so for now if you want to use it, clone this rep
 
 Take a look at the controllers, menus, views and routes in the sample app. Feels almost like a proper MVC configuration, doesn't it?
 
+##Unit Testing
+
+One of the main goals of Sketch is to enable Wordpress developers to more easily build testable applications. Ironically, as of this writing, Sketch itself has 0% code coverage (working on that!).
+
+Unit testing in Wordpress has always been a huge pain, because you can't use any Wordpress function without instantiating the entire Wordpress application. With Sketch, if any of your classes needs to use a Wordpress function, pass that class an instance of `\Sketch\WpApiWrapper`. That class contains precisely one function, `__call($method, $arguments)`, which simply calls the method passed to it. So instead of using `get_post_meta($id, 'meta_key', true);` in your class, you'd use `$this->wp->get_post_meta($id, 'meta_key', true);`.
+
+That simple layer of abstraction is all you need to be able to mock nearly the entire Wordpress application in your unit tests.
+
 ##Menus
 
 Normally when you create a Wordpress menu, you use the `add_menu_page()` function and pass a callback that defines everything the menu should display. With Sketch, you create a menu by extending the `\Sketch\WpMenuAbstract` or `\Sketch\WpSubmenuAbstract` class. Define the menu title, slug and permissions etc as properties of the class, and Sketch will take care of the rest. Sketch's menu classes have a `\Sketch\QueryStringRouter` class as a dependency, and `QueryStringRouter->resolve()` is the callback passed to Wordpress when the menu is created at runtime.
+
+If you need to add any actions associated with the menu (i.e., enqueueing public assets), override the menu's `addActions()` method, and add those actions there using the menu's `\Sketch\WpApiWrapper` instance. For example:
+
+    protected function addActions()
+    {
+        $this->wp->wp_enqueue_script('my_script', 'path/to/my/script.js');
+    }
 
 So define your menu classes like you see in the `app/menus`, and instantiate them in `index.php` by calling `$app->make('\MyMenu')`;
 
@@ -35,13 +50,6 @@ Right now, the router is very simple. It can only match routes having identical 
 
 Since the first given matching route will be selected, be sure to define your least specific routes last. Define your routes in `app/routes.php`. Make sure to put your routes between the comments that say "START ROUTES!" and "END ROUTES!", and try not to touch the other stuff unless you really know what you're doing.
 
-##Unit Testing
-
-One of the main goals of Sketch is to enable Wordpress developers to more easily build testable applications. Ironically, as of this writing, Sketch itself has 0% code coverage (working on that!).
-
-Unit testing in Wordpress has always been a huge pain, because you can't use any Wordpress function without instantiating the entire Wordpress application. With Sketch, if any of your classes needs to use a Wordpress function, pass that class an instance of `\Sketch\WpApiWrapper`. That class contains precisely one function, `__call($method, $arguments)`, which simply calls the method passed to it. So instead of using `get_post_meta($id, 'meta_key', true);` in your class, you'd use `$this->wp->get_post_meta($id, 'meta_key', true);`.
-
-That simple layer of abstraction is all you need to be able to mock the entire Wordpress application in your unit tests.
 
 ##Controllers
 
