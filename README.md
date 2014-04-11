@@ -4,7 +4,7 @@ Sketch is a tiny framework for creating well-structured MVC applications in Word
 
 ##What Makes Sketch Unique?
 
-Sketch takes an Object-Oriented approach to interacting with Wordpress. While it's not the first attempt at bringing an MVC style to Wordpress development, it is (to our knowledge) the first to take advantage of Composer and [Laravel's IoC](http://laravel.com/docs/ioc) container. Creating loosely coupled, testable applications is incredibly easy with Sketch.
+Sketch takes an Object-Oriented approach to interacting with Wordpress. While it's not the first attempt at bringing an MVC style to Wordpress development, it is (to my knowledge) the first to take advantage of Composer autoloading and [Laravel's IoC container](http://laravel.com/docs/ioc). Creating loosely coupled, testable applications is incredibly easy with Sketch.
 
 Sketch has a very small footprint. It's intended to work well in environments lacking command-line access, which only means that Sketch's default production dependencies are minimal enough that you don't need to sweat having them under version control. In a way, Sketch is less a framework and more a suggestion for how to structure applications that need to work with Wordpress.
 
@@ -16,7 +16,7 @@ Take a look at the controllers, menus, views and routes in the sample app. Feels
 
 ##Menus
 
-Normally when you create a Wordpress menu, you use the `add_menu_page()` function and pass a callback that defines everything the menu should display. With Sketch, you create a menu by extending the `\Sketch\WpMenuAbstract` or `\Sketch\WpSubmenuAbstract` class. Define the menu title, slug and permissions etc as properties of the class. Sketch's menu classes have a `\Sketch\QueryStringRouter` class as a dependency, and `QueryStringRouter->resolve()` is the callback passed to Wordpress when the menu is created at runtime.
+Normally when you create a Wordpress menu, you use the `add_menu_page()` function and pass a callback that defines everything the menu should display. With Sketch, you create a menu by extending the `\Sketch\WpMenuAbstract` or `\Sketch\WpSubmenuAbstract` class. Define the menu title, slug and permissions etc as properties of the class, and Sketch will take care of the rest. Sketch's menu classes have a `\Sketch\QueryStringRouter` class as a dependency, and `QueryStringRouter->resolve()` is the callback passed to Wordpress when the menu is created at runtime.
 
 So define your menu classes like you see in the `app/menus`, and instantiate them in `index.php` by calling `$app->make('\MyMenu')`;
 
@@ -45,7 +45,7 @@ That simple layer of abstraction is all you need to be able to mock the entire W
 
 ##Controllers
 
-Controllers are instantiated with an instance of the Plates template system and the Symfony request object by default. For any other dependencies, use constructor injection and the IoC container will pass them in automatically. Of course, if you are passing in an Interface as a dependency, be sure to use `$app->bind()` in your index.php file to specify which concrete class should be used.
+Controllers are instantiated with an instance of the [Plates](http://www.platesphp.com) template system and the Symfony [Request object](http://symfony.com/doc/current/components/http_foundation/introduction.html) by default. For any other dependencies, use constructor injection and the IoC container will pass them in automatically. Of course, if you are passing in an Interface as a dependency, be sure to use `$app->bind()` in your index.php file to specify which concrete class should be used.
 
 ##Views
 
@@ -60,5 +60,3 @@ The base model provides three ways of interacting with Wordpress data: `\Sketch\
 ##Validation
 
 By default, Sketch uses the [Valitron](http://github.com/vlucas/valitron) validation class. You can use Valitron directly in any class, and Sketch also provides a `\Sketch\ValidatorFactory` class so that you can more easily create validator instances or set up validation as a service.
-
-
