@@ -1,13 +1,12 @@
 #Sketch
 
-Sketch is a tiny framework for creating well-structured MVC applications in Wordpress.
+Sketch is a tiny framework for creating well-structured MVC applications in Wordpress. Right now Sketch is focused on making it easier to create menu pages where site admins can work with data, since that's the interface through which most of an application's heavy lifting is done. We'll add support for more features (custom post types, taxonomies, metaboxes, etc) as we go along.
 
-Sketch was originally designed to work well in environments lacking command-line access. Essentially all this means is that Sketch's default production dependencies are minimal enough that you don't need to sweat having them under version control.
+##What Makes Sketch Unique?
 
-Right now Sketch is focused on making it easier to create menu pages where site admins can work with data. We'll add support for more features (custom post types, taxonomies, metaboxes, etc) as we go along.
+Sketch takes an Object-Oriented approach to interacting with Wordpress. While it's not the first attempt at bringing and MVC style to Wordpress development, it is (to our knowledge) the first to take advantage of Composer and [Laravel's IoC](http://laravel.com/docs/ioc) container. Creating loosely coupled, testable applications is incredibly easy with Sketch.
 
-Sketch takes an Object-Oriented approach to interacting with Wordpress. It makes heavy use of [Laravel's IoC](http://laravel.com/docs/ioc) container, [Symfony's Request](http://symfony.com/doc/current/components/http_foundation/introduction.html) object, and the [Plates](http://platesphp.com/) templating system.
-
+Sketch has a very small footprint. It's intended to work well in environments lacking command-line access, which only means that Sketch's default production dependencies are minimal enough that you don't need to sweat having them under version control. In a way, Sketch is less a framework and more a suggestion for how to structure applications that need to work with Wordpress.
 
 ##Getting Started
 
