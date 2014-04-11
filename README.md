@@ -33,7 +33,7 @@ If you need to add any actions associated with the menu (i.e., enqueueing public
         $this->wp->wp_enqueue_script('my_script', 'path/to/my/script.js');
     }
 
-So define your menu classes like you see in the `app/menus`, and instantiate them in `index.php` by calling `$app->make('\MyMenu')`;
+Define your menu classes like you see in the `app/menus`, and instantiate them in `index.php` by calling `$app->make('\MyMenu')`;
 
 ##Routes
 Sketch's router is only intended to create navigation in the Wordpress admin backend. For now, it's not interested in creating front-end routes or "hijacking" Wordpress' native routing system. Instead, it's designed to play nicely with what's already there.
