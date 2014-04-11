@@ -10,7 +10,7 @@ Sketch has a very small footprint. It's intended to work well in environments la
 
 ##Getting Started
 
-Sketch is not on Packagist yet, so for now if you want to use it, just clone this repo somewhere into your project Wordpress project. Then `require "/path/to/Sketch/index.php"` in your plugin / app / functions.php / whateverplace and run `composer update`.
+Sketch is not on Packagist yet, so for now if you want to use it, just clone this repo somewhere into your Wordpress project. Then `require "/path/to/Sketch/index.php"` in your plugin / app / functions.php / whateverplace and run `composer update`.
 
 Take a look at the controllers, menus, views and routes in the sample app. Feels almost like a proper MVC configuration, doesn't it?
 
