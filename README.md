@@ -21,7 +21,7 @@ Normally when you create a Wordpress menu, you use the `add_menu_page()` functio
 So define your menu classes like you see in the `app/menus`, and instantiate them in `index.php` by calling `$app->make('\MyMenu')`;
 
 ##Routes
-Sketch's router is only intended to create navigation in the Wordpress admin backend. For now, it's not interested in creating front-end routes or "hijacking" Wordpress' native routing system. Instead, Sketch's router is designed specifically to play nicely within the confines of the Wordpress backend.
+Sketch's router is only intended to create navigation in the Wordpress admin backend. For now, it's not interested in creating front-end routes or "hijacking" Wordpress' native routing system. Instead, it's router is designed to play nicely with what's already there.
 
 Wordpress's backend admin navigation is almost entirely based on the contents of the query string, so Sketch's router is configured by passing in an associative array of the query string variables that need to be matched. In addition, you will also pass the name of the controller and method that should handle requests matching the route.
 
