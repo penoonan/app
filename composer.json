@@ -1,4 +1,16 @@
 {
+    "name": "sketch/app",
+    "description": "The Sketch Wordpress App Framework - Sample App",
+    "keywords": ["MVC","Wordpress"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Patrick Noonan",
+            "email": "pnoonan@arcstone.com",
+            "homepage": "http://github.com/pnoonan",
+            "role": "Developer"
+        }
+    ],
     "autoload": {
         "classmap": [
             "app/controllers",
