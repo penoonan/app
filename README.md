@@ -23,13 +23,13 @@ Take a look at the controllers, menus, views and routes in the sample app. Feels
 
 One of the main goals of Sketch is to enable Wordpress developers to more easily build testable applications.
 
-Unit testing in Wordpress has always been a huge pain, because you can't use any Wordpress function without instantiating the entire Wordpress application. With Sketch, if any of your classes needs to use a Wordpress function, pass that class an instance of `\Sketch\WpApiWrapper`. That class contains precisely one function, `__call($method, $arguments)`, which simply calls the method passed to it. So instead of using `get_post_meta($id, 'meta_key', true);` in your class, you'd use `$this->wp->get_post_meta($id, 'meta_key', true);`.
+Unit testing in Wordpress has always been a huge pain, because you can't use any Wordpress function without instantiating the entire Wordpress application. With Sketch, if any of your classes needs to use a Wordpress function, pass that class an instance of `\Sketch\WpApiWrapper`. That class contains precisely one function, `__call($method, $arguments)`, which simply calls and returns the method passed to it. So instead of using `get_post_meta($id, 'meta_key', true);` in your class, you'd use `$this->wp->get_post_meta($id, 'meta_key', true);`.
 
 That little layer of abstraction is all you need to be able to mock nearly the entire Wordpress application in your unit tests.
 
 ##Menus
 
-Normally when you create a Wordpress menu, you use the `add_menu_page()` function and pass a callback that defines everything the menu should display. With Sketch, you create a menu by extending the `\Sketch\WpMenuAbstract` or `\Sketch\WpSubmenuAbstract` class. Define the menu title, slug and permissions etc as properties of the class, and Sketch will take care of the rest. Sketch's menu classes have a `\Sketch\QueryStringRouter` class as a dependency, and `QueryStringRouter->resolve()` is the callback passed to Wordpress when the menu is created at runtime.
+Normally when you create a Wordpress menu, you use the `add_menu_page()` function and pass a callback that defines everything the menu should display. With Sketch, you create a menu by extending the `\Sketch\WpMenuAbstract` or `\Sketch\WpSubmenuAbstract` class. Define the menu title, slug and permissions etc as properties of the class, and Sketch will take care of the rest. Sketch's menu classes have a routing class as a dependency, and `this->router->resolve()` is the callback passed to Wordpress when the menu is created at runtime.
 
 If you need to add any actions associated with the menu (i.e., enqueueing public assets), override the menu's `addActions()` method, and add those actions there using the menu's `\Sketch\WpApiWrapper` instance. For example:
 
@@ -44,9 +44,13 @@ Define your menu classes like you see in the `app/menus` folder, and instantiate
 
 Sketch's router is only intended to create navigation in the Wordpress admin backend. For now, it's not interested in creating front-end routes or "hijacking" Wordpress' native routing system. Instead, it's designed to play nicely with what's already there.
 
-Wordpress's backend admin navigation is almost entirely based on the contents of the query string, so Sketch's router is configured by passing in an associative array of the query string variables that need to be matched. In addition, you will also pass the name of the controller and method that should handle requests matching the route.
+Wordpress's backend admin navigation is almost entirely based on the contents of the query string, so Sketch's router is configured by passing in either an associative array of the query string variables that need to be matched, or an actual query string. In addition, you will also pass the name of the controller and method that should handle requests matching the route.
 
-E.g., `$router->get(array('page' => 'my_menu_slug'), 'home@index');`
+These examples are all the same:
+
+*`$router->get('?page=my_menu_slug&action=index', 'home@index');
+*`$router->get('action=index&page=my_menu_slug', 'home@index');
+*`$router->get(array('page' => 'my_menu_slug', 'action' => 'index'), 'home@index');`
 
 The above example will cause Sketch to look for the class `HomeController`, and run its `index()` method.  Currently this is the only valid syntax for designating a controller. You can also use the methods `$router->post()`, or `$router->any()` to handle GET and POST requests.
 
@@ -89,7 +93,6 @@ The base model provides three ways of interacting with Wordpress data: `\Sketch\
 ##Validation
 
 By default, Sketch uses the [Valitron](http://github.com/vlucas/valitron) validation class. You can use Valitron directly in any class, and Sketch also provides a `\Sketch\ValidatorFactory` class so that you can more easily inject validator instances or set up validation as a service.
-
 
 ##Where Did Sketch Come From?
 
