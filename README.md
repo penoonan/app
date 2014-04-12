@@ -95,8 +95,8 @@ By default, Sketch uses the [Valitron](http://github.com/vlucas/valitron) valida
 
 Sketch was created at [ArcStone](http://www.arcstone.com), a Minneapolis Web / Marketing agency. "Sketch" refers to a loose pronunciation of the acronym you get from ArcStone's core values:
 
-* **S**ervice
-* **C**raftsmanship
-* **E**volution
-* **S**tewardship
-* **H**appiness
+* Service
+* Craftsmanship
+* Evolution
+* Stewardship
+* Happiness
