@@ -13,7 +13,8 @@ Sketch has a very small footprint. It's intended to work well in environments la
 This Sketch sample app is not on Packagist yet, but the [framework code](http://www.github.com/sketchwp/sketch) is. So for now if you want to use it:
 
 * Clone this repo somewhere into your Wordpress project
-* Run `composer update`
+* `cd sketch`
+* `composer update`
 * `require "/path/to/Sketch/index.php"` in your plugin / app / functions.php / whateverplace.
 
 Take a look at the controllers, menus, views and routes in the sample app. Feels almost like a proper MVC configuration, doesn't it?
