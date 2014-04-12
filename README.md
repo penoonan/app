@@ -48,7 +48,7 @@ Wordpress's backend admin navigation is almost entirely based on the contents of
 
 These examples are all the same:
 
-*`$router->get('?page=my_menu_slug&action=index', 'home@index');
+*`$router->get('?page=my_menu_slug&action=index', 'home@index');`
 *`$router->get('action=index&page=my_menu_slug', 'home@index');`
 *`$router->get(array('page' => 'my_menu_slug', 'action' => 'index'), 'home@index');`
 
