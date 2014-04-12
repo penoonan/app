@@ -24,14 +24,14 @@ $app->bind('League\Plates\Template', function() use ($app) {
       return $engine->makeTemplate();
   });
 
+$app['template'] = $app->make('League\Plates\Template');
+
 $app->bind('Sketch\Dispatcher', function() use($app) {
       return new \Sketch\Dispatcher($app, $app->make('League\Plates\Template'));
 });
 
 //Register all them routes
 require_once __DIR__ . '/../routes.php';
-
-
 $app->bind('Sketch\RouterInterface', function() use($app) { return $app['router']; });
 
 // return the app!

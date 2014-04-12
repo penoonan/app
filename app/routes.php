@@ -11,7 +11,15 @@ $app['router'] = function($app) {
      *---------------*/
 
     $router->get(array('page' => 'sketch_hello_world'), 'hello@index');
+
+    // Use a callback!
+    $router->get('page=sketch_hello_submenu&action=test_callback', function() use($app) {
+          echo $app['template']->render('callback');
+    });
+
     $router->get(array('page' => 'sketch_hello_submenu'), 'hello@submenu');
+
+
 
     /*--------------
      | END ROUTES! |
