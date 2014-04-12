@@ -49,7 +49,7 @@ E.g., `$router->get(array('page' => 'my_menu_slug'), 'home@index');`
 
 The above example will cause Sketch to look for the class `HomeController`, and run its `index()` method.  Currently this is the only valid syntax for designating a controller. You can also use the methods `$router->post()`, or `$router->any()` to handle GET and POST requests.
 
-Right now, the router is very simple. It can only match routes having identical strings, or `{int}` variables. So if you wanted to edit a particular "foo" item, your route might look something like this:
+Right now, the router is very simple. It can only match identical strings, or `{int}` variables. So if you wanted to edit a particular "foo" item, your route might look something like this:
 
 `$router->get(array('page' => 'my_foo_menu_slug', 'action' => 'edit', 'id' => '{int}'), 'foo@edit');`
 
