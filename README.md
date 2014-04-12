@@ -10,7 +10,7 @@ Sketch has a very small footprint. It's intended to work well in environments la
 
 ##Getting Started
 
-This Sketch sample app is not on Packagist yet, but the [framework code](http://www.github.com/sketchwp/sketch) is. So for now if you want to use it, open up your terminal, navigate to basically anywhere in your Wordpress project:
+This Sketch sample app is not on Packagist yet, but the [framework code](http://www.github.com/sketchwp/sketch) is. So for now if you want to use it, open up your terminal, navigate to basically anywhere in your Wordpress project, then:
 
 * `git clone https://github.com/pnoonan/sketch.git`
 * `cd sketch`
