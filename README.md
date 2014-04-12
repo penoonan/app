@@ -14,7 +14,7 @@ This Sketch sample app is not on Packagist yet, but the [framework code](http://
 
 * `git clone https://github.com/pnoonan/sketch.git`
 * `cd sketch`
-* `composer update`
+* `composer update` (assuming you have [installed composer](https://getcomposer.org)
 * `require "/path/to/Sketch/index.php"` in your plugin / app / functions.php / whateverplace.
 
 Take a look at the controllers, menus, views and routes in the sample app. Feels almost like a proper MVC configuration, doesn't it?
