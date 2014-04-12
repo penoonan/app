@@ -10,6 +10,8 @@ $app = new \Illuminate\Container\Container();
 $app->singleton('Symfony\Component\HttpFoundation\Request', function() {
       return \Symfony\Component\HttpFoundation\Request::createFromGlobals();
 });
+$app['request'] = $app->make('Symfony\Component\HttpFoundation\Request');
+$app['validator'] = $app->make('Sketch\ValidatorFactory');
 
 $app->bind('League\Plates\Template', function() use ($app) {
       $engine = new League\Plates\Engine( __DIR__.'/../views');
