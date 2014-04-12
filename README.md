@@ -93,7 +93,7 @@ By default, Sketch uses the [Valitron](http://github.com/vlucas/valitron) valida
 
 ##Where Did Sketch Come From?
 
-Sketch was created at [ArcStone](http://www.arcstone.com), a Minneapolis Web / Marketing agency. "Sketch" refers to a loose pronunciation of the acronym you get from ArcStone's core values:
+Sketch was created at [ArcStone](http://www.arcstone.com), a Minneapolis Web / Marketing agency. "Sketch" refers to a loose pronunciation of the acronym you get from ArcStone's [core values](http://www.arcstone.com/who-we-are/core-values/):
 
 * Service
 * Craftsmanship
