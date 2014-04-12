@@ -6,14 +6,15 @@
             "app/models"
         ],
         "psr-4": {
-            "MyApp\\": "lib/MyApp",
-            "Sketch\\": "vendor/Sketch/src/Sketch"
+            "MyApp\\": "lib"
         }
     },
     "require": {
-        "symfony/http-foundation": "2.3.*@dev",
-        "illuminate/container": "4.1.*@dev",
-        "league/plates": "dev-master",
-        "vlucas/valitron": "dev-master"
-    }
+        "sketch/sketch": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*",
+        "mockery/mockery": "dev-master"
+    },
+    "minimum-stability": "dev"
 }
