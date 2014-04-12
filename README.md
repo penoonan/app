@@ -89,3 +89,14 @@ The base model provides three ways of interacting with Wordpress data: `\Sketch\
 ##Validation
 
 By default, Sketch uses the [Valitron](http://github.com/vlucas/valitron) validation class. You can use Valitron directly in any class, and Sketch also provides a `\Sketch\ValidatorFactory` class so that you can more easily inject validator instances or set up validation as a service.
+
+
+##Where Did Sketch Come From?
+
+Sketch was created at [ArcStone](http://www.arcstone.com), a Minneapolis Web / Marketing agency. "Sketch" refers to a loose pronunciation of the acronym you get from ArcStone's core values:
+
+* **S**ervice
+* **C**raftsmanship
+* **E**volution
+* **S**tewardship
+* **H**appiness
