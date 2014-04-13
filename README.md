@@ -10,7 +10,7 @@ Sketch has a very small footprint. It's intended to work well in environments la
 
 ##Getting Started
 
-The best way to install sketch is through composer. You can do it in one line:
+The best way to install sketch is by using [Composer](http://www.getcomposer.org). You can do it in one command:
 
 * `composer create-project sketch/app -s dev sketch --prefer-dist`
 
