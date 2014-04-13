@@ -10,7 +10,7 @@ Sketch has a very small footprint. It's intended to work well in environments la
 
 ##Getting Started
 
-The best way to install sketch is by using [Composer](http://www.getcomposer.org). In your terminal, navigate to anywhere inside your wordpress installation, and install Sketch with one command:
+The best way to install Sketch is with [Composer](http://www.getcomposer.org). In your terminal, navigate to anywhere inside your wordpress installation, and install Sketch with one command:
 
 * `composer create-project sketch/app -s dev your-app-name-goes-here --prefer-dist`
 
