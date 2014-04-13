@@ -22,7 +22,7 @@ One of the main goals of Sketch is to enable Wordpress developers to more easily
 
 Unit testing in Wordpress has always been a huge pain, because you can't use any Wordpress function without instantiating the entire Wordpress application. With Sketch, if any of your classes needs to use a Wordpress function, pass that class an instance of `\Sketch\WpApiWrapper`. That class contains precisely one function, `__call($method, $arguments)`, which simply calls and returns the method passed to it. So instead of using `get_post_meta($id, 'meta_key', true);` in your class, you'd use `$this->wp->get_post_meta($id, 'meta_key', true);`.
 
-That little layer of abstraction is all you need to be able to mock nearly the entire Wordpress application in your unit tests.
+That little layer of abstraction is all you need to be able to mock any of Wordpress's "globally namespaced" functions in your unit tests.
 
 ##Menus
 
@@ -79,7 +79,7 @@ Say you want to make a controller that grabs `page` from the query string (i.e.,
 
 For a view corresponding to the above controller example, create a file called `app/views/home.php`. To output the `page` variable, use `<?= $this->page ?>` anywhere in your template.
 
-A few variables automatically get passed to every view: `nonce_name`, `nonce_action`, `message`, and `errors`. In addition, Sketch comes with a few simple Plates extensions, most notably the `wp()` function, which provides mockable access to all Wordpress' globally namespaced functions. Pass the name of the function as the first argument, and an array of your parameters as the second.
+A few variables automatically get passed to every view: `nonce_name`, `nonce_action`, `message`, and `errors`. In addition, Sketch comes with a few simple Plates extensions, most notably the `wp()` function, which provides access to `\Sketch\WpApiWrapper`. Pass the name of the function as the first argument, and an array of your parameters as the second.
 
 See the [Plates](http://www.platesphp.com) documentation to learn more about what you can do with views.
 
