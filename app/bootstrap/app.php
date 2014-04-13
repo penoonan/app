@@ -2,9 +2,6 @@
 require_once __DIR__.'/../../vendor/autoload.php';
 require_once 'util/helpers.php';
 
-DEFINE('ARCSTONE_SKETCH_BASE_DIR', __DIR__);
-DEFINE('ARCSTONE_SKETCH_BASE_URI', content_url());
-
 $app = new \Illuminate\Container\Container();
 
 $app->singleton('Symfony\Component\HttpFoundation\Request', function() {
