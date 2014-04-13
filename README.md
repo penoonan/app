@@ -10,12 +10,9 @@ Sketch has a very small footprint. It's intended to work well in environments la
 
 ##Getting Started
 
-This Sketch sample app is not on Packagist yet, but the [framework code](http://www.github.com/sketchwp/sketch) is. So for now if you want to use it, open up your terminal, navigate to basically anywhere in your Wordpress project, then:
+The best way to install sketch is through composer. You can do it in one line:
 
-* `git clone https://github.com/pnoonan/sketch.git`
-* `cd sketch`
-* `composer update` (assuming you have [installed Composer](https://getcomposer.org))
-* `require "/path/to/Sketch/index.php"` in your plugin / app / functions.php / whateverplace.
+* `composer create-project sketch/app -s dev sketch --prefer-dist`
 
 Take a look at the controllers, menus, views and routes in the sample app. Feels almost like a proper MVC configuration, doesn't it?
 
