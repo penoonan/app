@@ -1,6 +1,7 @@
 <?php
 
 use Post;
+use MyApp\MyClass;
 
 class HelloController extends \Sketch\WpBaseController {
 
@@ -9,9 +10,15 @@ class HelloController extends \Sketch\WpBaseController {
      */
     protected $post_model;
 
-    public function __construct(Post $post_model)
+    /**
+     * @var MyApp\MyClass
+     */
+    protected $my_class;
+
+    public function __construct(Post $post_model, MyClass $my_class)
     {
         $this->post_model = $post_model;
+        $this->my_class = $my_class;
     }
 
 
@@ -19,7 +26,8 @@ class HelloController extends \Sketch\WpBaseController {
     {
         $data = array(
           'page' => $this->request->query->get('page'),
-          'posts' => $this->post_model->all()
+          'posts' => $this->post_model->all(),
+          'ello' => $this->my_class->ello()
         );
 
         $this->render('hello::hello', $data);

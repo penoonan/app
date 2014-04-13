@@ -18,7 +18,7 @@
             "app/models"
         ],
         "psr-4": {
-            "MyApp\\": "lib"
+            "MyApp\\": "lib/MyApp"
         }
     },
     "require": {
