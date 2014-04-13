@@ -10,9 +10,9 @@ Sketch has a very small footprint. It's intended to work well in environments la
 
 ##Getting Started
 
-The best way to install sketch is by using [Composer](http://www.getcomposer.org). You can do it in one command:
+The best way to install sketch is by using [Composer](http://www.getcomposer.org). In your terminal, navigate to anywhere inside your wordpress installation, and install Sketch with one command:
 
-* `composer create-project sketch/app -s dev sketch --prefer-dist`
+* `composer create-project sketch/app -s dev your-app-name-goes-here --prefer-dist`
 
 Take a look at the controllers, menus, views and routes in the sample app. Feels almost like a proper MVC configuration, doesn't it?
 
