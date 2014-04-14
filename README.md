@@ -41,7 +41,7 @@ Define your menu classes like you see in the `app/menus` folder, and instantiate
 
 Sketch's router is only intended to create navigation in the Wordpress admin backend. For now, it's not interested in creating front-end routes or "hijacking" Wordpress' native routing system. Instead, it's designed to play nicely with what's already there.
 
-Wordpress's backend admin navigation is almost entirely based on the contents of the query string, so Sketch's router is configured by passing in either an associative array of the query string variables that need to be matched, or an actual query string. In addition, you will also pass the name of the controller and method that should handle requests matching the route.
+Wordpress's backend admin navigation is largely based on the contents of the query string, so Sketch's router is configured by passing in either an associative array of the query string variables that need to be matched, or an actual query string. In addition, you will also pass the name of the controller and method that should handle requests matching the route.
 
 These examples are all the same:
 

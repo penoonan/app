@@ -20,8 +20,6 @@ $app['router'] = function($app) {
           echo $app['template']->render('callback', $data);
       });
 
-
-
     /*--------------
      | END ROUTES! |
      *-------------*/
