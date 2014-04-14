@@ -37,4 +37,9 @@ class HelloController extends \Sketch\WpBaseController {
     {
         $this->render('hello::submenu');
     }
+
+    public function metabox()
+    {
+        $this->render('hello::metabox');
+    }
 }

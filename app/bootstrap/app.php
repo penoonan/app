@@ -26,7 +26,7 @@ $app->bind('League\Plates\Template', function() use ($app) {
 $app['template'] = $app->make('League\Plates\Template');
 
 $app->bind('Sketch\Dispatcher', function() use($app) {
-      return new \Sketch\Dispatcher($app, $app->make('League\Plates\Template'));
+      return new \Sketch\Dispatcher($app, $app->make('League\Plates\Template'), $app['request']);
 });
 
 //Register all them routes

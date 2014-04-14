@@ -15,7 +15,9 @@
         "classmap": [
             "app/controllers",
             "app/menus",
-            "app/models"
+            "app/models",
+            "app/posts",
+            "app/metaboxes"
         ],
         "psr-4": {
             "MyApp\\": "lib/MyApp"
