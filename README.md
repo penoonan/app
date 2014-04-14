@@ -14,7 +14,7 @@ The best way to install Sketch is with [Composer](http://www.getcomposer.org). I
 
 * `composer create-project sketch/app -s dev your-app-name-goes-here --prefer-dist`
 
-Take a look around!
+Then, from inside your theme's `functions.php` file, require `path/to/sketch/index.php` and start building.
 
 ##Unit Testing
 
