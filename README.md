@@ -87,7 +87,7 @@ See the [Plates](http://www.platesphp.com) documentation to learn more about wha
 
 The base model provides three ways of interacting with Wordpress data: `\Sketch\WpApiWrapper`,  `\Sketch\WpQueryFactory`, and `\Sketch\WpDbWrapper`. That way, you can fetch your posts and database objects however you like, whether with normal Wordpress functions (e.g., `$this->wp->get_posts()`), by creating a new WP_Query object (`$this->wp_query->make($args)`), or by using `$this->wpdb->get_results($prepared_sql)`.
 
-If that's too simplistic, remember you are in no way required to use Sketch's base model. It's not an ORM, has no query builder, and is kept minimal by design. You can easily write your own base Model class or even use something like the [Eloquent ORM](http://www.edzynda.com/use-laravels-eloquent-orm-outside-of-laravel/) if "lightweight" isn't a priority.
+If that's too simplistic, remember you are in no way required to use Sketch's base model. It's not an ORM, has no query builder, and is kept minimal by design. You can easily write your own base Model class or even use something like the [Eloquent ORM](http://www.edzynda.com/use-laravels-eloquent-orm-outside-of-laravel/) if keeping a small footprint isn't a priority for your project.
 
 ##Validation
 
