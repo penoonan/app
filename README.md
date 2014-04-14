@@ -35,7 +35,7 @@ If you need to add any actions associated with the menu (i.e., enqueueing public
         $this->wp->wp_enqueue_script('my_script', 'path/to/my/script.js');
     }
 
-Define your menu classes like you see in the `app/menus` folder, and instantiate them in `index.php` by calling `$app->make('\MyMenu')`;
+Define your menu classes like you see in the `app/menus` folder, and instantiate them in `index.php` by calling `$app->make('MyMenu')`;
 
 ##Routes
 
