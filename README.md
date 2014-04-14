@@ -10,7 +10,7 @@ Sketch has a very small footprint. It's intended to work well in environments la
 
 ##Getting Started
 
-The best way to install Sketch is with [Composer](http://www.getcomposer.org). In your terminal, navigate to anywhere inside your wordpress project, and install Sketch with one command:
+The best way to install Sketch is with [Composer](http://www.getcomposer.org). In your terminal, navigate to anywhere inside your Wordpress project, and install Sketch with one command:
 
 * `composer create-project sketch/app -s dev your-app-name-goes-here --prefer-dist`
 
@@ -22,7 +22,7 @@ One of the main goals of Sketch is to enable Wordpress developers to more easily
 
 Unit testing in Wordpress has always been a huge pain, because you can't use any Wordpress function without instantiating the entire Wordpress application. With Sketch, if any of your classes needs to use a Wordpress function, pass that class an instance of `\Sketch\WpApiWrapper`. That class contains precisely one function, `__call($method, $arguments)`, which simply calls and returns the method passed to it. So instead of using `get_post_meta($id, 'meta_key', true);` in your class, you'd use `$this->wp->get_post_meta($id, 'meta_key', true);`.
 
-That little layer of abstraction is all you need to be able to mock any of Wordpress's "globally namespaced" functions in your unit tests.
+It takes a bit of discipline, but that little layer of abstraction is all you need to be able to mock any of Wordpress's "globally namespaced" functions in your unit tests.
 
 ##Menus
 

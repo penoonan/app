@@ -102,12 +102,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sketchwp/sketch.git",
-                "reference": "ae4869297fe6f66cf48c5583eb13b97fce7f8f60"
+                "reference": "2f64cd8a11953a95ba1580ddfa0fe0fd686e04cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sketchwp/sketch/zipball/ae4869297fe6f66cf48c5583eb13b97fce7f8f60",
-                "reference": "ae4869297fe6f66cf48c5583eb13b97fce7f8f60",
+                "url": "https://api.github.com/repos/sketchwp/sketch/zipball/2f64cd8a11953a95ba1580ddfa0fe0fd686e04cd",
+                "reference": "2f64cd8a11953a95ba1580ddfa0fe0fd686e04cd",
                 "shasum": ""
             },
             "require": {
@@ -144,7 +144,7 @@
                 "mvc",
                 "wordpress"
             ],
-            "time": "2014-04-14 03:46:43"
+            "time": "2014-04-14 19:34:46"
         },
         {
             "name": "symfony/http-foundation",
@@ -204,12 +204,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/valitron.git",
-                "reference": "430a8324ece573e338ef68cb68e368f66fddb0d7"
+                "reference": "2120bacaf54e8bc942cf8b6984e325c36fde0238"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/valitron/zipball/430a8324ece573e338ef68cb68e368f66fddb0d7",
-                "reference": "430a8324ece573e338ef68cb68e368f66fddb0d7",
+                "url": "https://api.github.com/repos/vlucas/valitron/zipball/2120bacaf54e8bc942cf8b6984e325c36fde0238",
+                "reference": "2120bacaf54e8bc942cf8b6984e325c36fde0238",
                 "shasum": ""
             },
             "require": {
@@ -239,7 +239,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2014-04-10 15:53:37"
+            "time": "2014-04-14 14:55:10"
         }
     ],
     "packages-dev": [
