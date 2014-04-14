@@ -102,12 +102,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sketchwp/sketch.git",
-                "reference": "2062ebe5e54b355cb312cdd956e92f80be5cbc47"
+                "reference": "ae4869297fe6f66cf48c5583eb13b97fce7f8f60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sketchwp/sketch/zipball/2062ebe5e54b355cb312cdd956e92f80be5cbc47",
-                "reference": "2062ebe5e54b355cb312cdd956e92f80be5cbc47",
+                "url": "https://api.github.com/repos/sketchwp/sketch/zipball/ae4869297fe6f66cf48c5583eb13b97fce7f8f60",
+                "reference": "ae4869297fe6f66cf48c5583eb13b97fce7f8f60",
                 "shasum": ""
             },
             "require": {
@@ -144,7 +144,7 @@
                 "mvc",
                 "wordpress"
             ],
-            "time": "2014-04-14 03:12:22"
+            "time": "2014-04-14 03:46:43"
         },
         {
             "name": "symfony/http-foundation",

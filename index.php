@@ -5,6 +5,7 @@ $app = require_once 'app/bootstrap/app.php';
 
 $app->make('Hello\Hello');
 $app->make('Hello\Submenus\HelloSubmenu');
+$app->make('Hello\Submenus\CallbackSubmenu');
 
 $hello_post_type = $app->make('HelloPostType');
 $hello_post_type->addMetabox($app->make('HelloMetabox'));
