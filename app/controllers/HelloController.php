@@ -1,9 +1,8 @@
 <?php
 
-use Post;
 use MyApp\MyClass;
 
-class HelloController extends \Sketch\WpBaseController {
+class HelloController extends \Sketch\BaseController {
 
     /**
      * @var Post

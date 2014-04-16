@@ -1,6 +1,8 @@
 <?php
 
-class Post extends \Sketch\WpBaseModel {
+use Sketch\Wp\WpBaseModel;
+
+class Post extends WpBaseModel {
 
     public function all()
     {

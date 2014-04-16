@@ -2,7 +2,8 @@
 
 namespace Hello\Submenus;
 
-use Sketch\WpSubmenuAbstract;
+use Sketch\Menu\WpSubmenuAbstract;
+
 class CallbackSubmenu extends WpSubmenuAbstract {
 
     public

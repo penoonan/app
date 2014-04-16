@@ -2,7 +2,7 @@
 
 namespace Hello\Submenus;
 
-use Sketch\WpSubmenuAbstract;
+use Sketch\Menu\WpSubmenuAbstract;
 
 class HelloSubmenu extends WpSubmenuAbstract {
 

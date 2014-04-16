@@ -1,8 +1,9 @@
 <?php
 
 namespace Hello;
+use Sketch\Menu\WpMenuAbstract;
 
-class Hello extends \Sketch\WpMenuAbstract {
+class Hello extends WpMenuAbstract {
 
     public
       $page_title = 'Hello!',
