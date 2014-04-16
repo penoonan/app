@@ -7,7 +7,6 @@ Sketch is a tiny framework for creating well-structured MVC applications in Word
     // Add our sample menus and submenus
     $app->make('Hello\Hello');
     $app->make('Hello\Submenus\HelloSubmenu');
-    $app->make('Hello\Submenus\CallbackSubmenu');
 
     // Add our sample post type and a metabox
     $app->make('HelloPostType')->addMetabox($app->make('HelloMetabox'));
