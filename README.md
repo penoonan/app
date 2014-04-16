@@ -1,6 +1,18 @@
 #Sketch
 
-Sketch is a tiny framework for creating well-structured MVC applications in Wordpress. Right now Sketch is focused on making it easier to create menu pages where site admins can work with data, as well as custom post types and metaboxes. We'll add support for more features as we go along.
+Sketch is a tiny framework for creating well-structured MVC applications in Wordpress. Right now Sketch is focused on making it easier to create menu pages where site admins can work with data, as well as custom post types and metaboxes:
+
+    $app = require_once 'app/bootstrap/app.php';
+
+    // Add our sample menus and submenus
+    $app->make('Hello\Hello');
+    $app->make('Hello\Submenus\HelloSubmenu');
+    $app->make('Hello\Submenus\CallbackSubmenu');
+
+    // Add our sample post type and a metabox
+    $app->make('HelloPostType')->addMetabox($app->make('HelloMetabox'));
+
+We'll add support for more features as we go along.
 
 ##What Makes Sketch Unique?
 
