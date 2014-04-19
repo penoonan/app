@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__.'/../../vendor/autoload.php';
-require_once 'util/helpers.php';
+require_once __DIR__.'/../vendor/autoload.php';
+require_once 'helpers.php';
 
 $app = new \Illuminate\Container\Container();
 
@@ -11,11 +11,11 @@ $app['request'] = $app->make('Symfony\Component\HttpFoundation\Request');
 $app['validator'] = $app->make('Sketch\ValidatorFactory');
 
 $app->bind('League\Plates\Template', function() use ($app) {
-      $engine = new League\Plates\Engine( __DIR__.'/../views');
+      $engine = new League\Plates\Engine( __DIR__.'/views');
       $engine->loadExtension(new \League\Plates\Extension\URI($app->make('Symfony\Component\HttpFoundation\Request')));
       $engine->loadExtension(new \League\Plates\Extension\Asset(__DIR__.'/app/public', true));
       $engine->loadExtension($app->make('Sketch\TemplateHelpers'));
-      $view_folders = glob(__DIR__.'/../views/*' , GLOB_ONLYDIR);
+      $view_folders = glob(__DIR__.'/views/*' , GLOB_ONLYDIR);
       foreach ($view_folders as $folder) {
           $engine->addFolder(basename($folder), $folder);
       }
@@ -30,7 +30,7 @@ $app->bind('Sketch\Dispatcher', function() use($app) {
 });
 
 //Register all them routes
-require_once __DIR__ . '/../menus/routes.php';
+require_once __DIR__ . '/menus/routes.php';
 $app->bind('Sketch\RouterInterface', function() use($app) { return $app['router']; });
 
 // return the app!
