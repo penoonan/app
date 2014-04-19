@@ -30,7 +30,7 @@ $app->bind('Sketch\Dispatcher', function() use($app) {
 });
 
 //Register all them routes
-require_once __DIR__ . '/../routes.php';
+require_once __DIR__ . '/../menus/routes.php';
 $app->bind('Sketch\RouterInterface', function() use($app) { return $app['router']; });
 
 // return the app!
