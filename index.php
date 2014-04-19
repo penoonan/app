@@ -7,4 +7,6 @@ $app->make('Hello\Submenus\HelloSubmenu');
 $app->make('Hello\Submenus\CallbackSubmenu');
 
 // Add our sample post type and a metabox
-$app->make('HelloPostType')->addMetabox($app->make('HelloMetabox'));
+$app->make('HelloPostType')
+    ->addMetabox($app->make('HelloMetabox'))
+    ->addTaxonomy($app->make('HelloTaxonomy'));

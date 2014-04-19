@@ -6,7 +6,13 @@ class HelloPostType extends BaseCustomPostType {
 
     protected
         $post_type = 'hello_post_type',
-        $name = "Hello",
-        $show_ui = true,
-        $show_in_menu = true;
-} 
+        $args = array(
+            'show_ui' => true,
+            'show_in_menu' => true
+        ),
+        $labels = array(
+            'menu_name' => 'Hello',
+            'all_items' => 'All Hello Posts',
+            'name' => 'Hello Posts'
+        );
+}

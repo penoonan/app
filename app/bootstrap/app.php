@@ -35,3 +35,4 @@ $app->bind('Sketch\RouterInterface', function() use($app) { return $app['router'
 
 // return the app!
 return $app;
+

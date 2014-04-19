@@ -17,7 +17,8 @@
             "app/menus",
             "app/models",
             "app/posts",
-            "app/metaboxes"
+            "app/metaboxes",
+            "app/taxonomies"
         ],
         "psr-4": {
             "MyApp\\": "lib/MyApp"
