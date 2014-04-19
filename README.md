@@ -39,7 +39,7 @@ It takes a bit of discipline, but that little layer of abstraction is all you ne
 
 ##Menus
 
-Normally when you create a Wordpress menu, you use the `add_menu_page()` function and pass a callback that defines everything the menu should display. With Sketch, you create a menu by extending the `\Sketch\WpMenuAbstract` or `\Sketch\WpSubmenuAbstract` class. Define the menu title, slug and permissions etc as properties of the class, and Sketch will take care of the rest. Sketch's menu classes have a routing class as a dependency, and `this->router->resolve()` is the callback passed to Wordpress when the menu is created at runtime.
+Normally when you create a Wordpress menu, you use the `add_menu_page()` function and pass a callback that defines everything the menu should display. With Sketch, you create a menu by extending the `\Sketch\Menu\WpMenuAbstract` or `\Sketch\Menu\WpSubmenuAbstract` class. Define the menu title, slug and permissions etc as properties of the class, and Sketch will take care of the rest. Sketch's menu classes have a routing class as a dependency, and `this->router->resolve()` is the callback passed to Wordpress when the menu is created at runtime.
 
 If you need to add any actions associated with the menu (i.e., enqueueing public assets), override the menu's `addActions()` method, and add those actions there using the menu's `\Sketch\WpApiWrapper` instance. For example:
 
@@ -69,6 +69,16 @@ Right now, the router is very simple. It can only match identical strings, or `{
 `$router->get(array('page' => 'my_foo_menu_slug', 'action' => 'edit', 'id' => '{int}'), 'foo@edit');`
 
 Define your menu routes in `app/menus/routes.php`, and be sure to put your routes between the comments that say "START ROUTES!" and "END ROUTES!". Try not to touch the other stuff unless you really know what you're doing. Since the first given matching route will be selected, define your most specific routes first and your least specific routes last.
+
+##Custom Post Types
+
+Similar to menus, you can create a new custom post type by extending the `\Sketch\CustomPostType\BaseCustomPostType` class. Again, define the classes' arguments as properties on the class. You can define `$args`, `$labels`, and `$rewrite` variables as their own separate arrays. Sketch will add the `$labels` and `$rewrite` parameters to the `$args` array automatically when creating the post type at run-time. This arrangement does distort the normal "Wordpress way" a bit - but it seemed like the most readable solution.
+
+Add metaboxes and taxonomies to your Custom Post Type when you instantiate it in `index.php` (see the first code sample at the top of the page).
+
+##Taxonomies
+
+To create a taxonomy, extend the `\Sketch\Taxonomy\BaseTaxonomy` class, and add the taxonomy's parameters in the same way as for a custom post type. In addition to the `$args`, `$labels` and `$rewrite` arrays, taxonomies can also have a `$capabilities` array.
 
 ##Controllers
 
