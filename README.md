@@ -23,11 +23,11 @@ Sketch has a very small footprint. It's intended to work well in environments la
 
 ##Getting Started
 
-The best way to install Sketch is with [Composer](http://www.getcomposer.org). In your terminal, navigate to anywhere inside your Wordpress project, and install Sketch with one command:
+The best way to install Sketch is with [Composer](http://www.getcomposer.org). In your terminal, navigate to the root of your Wordpress project, and install Sketch with one command:
 
 * `composer create-project sketch/app -s dev your-app-name-goes-here --prefer-dist`
 
-Then, from inside your theme's `functions.php` file, require `path/to/sketch/index.php` and start building.
+Then, from inside your theme's `functions.php` file, or your plugin, or wherever you wish to instantiate Sketch, just require `path/to/sketch/index.php` and start building.
 
 ##Unit Testing
 
