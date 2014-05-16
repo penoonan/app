@@ -73,7 +73,7 @@ These examples are all the same:
 
 * `$app['router']->get('?page=my_menu_slug&action=index', 'home@index');`
 * `$app['router']->get('action=index&page=my_menu_slug', 'home@index');`
-* `$app['router']->get(array('page' => 'my_menu_slug', 'action' => 'index'), 'home@index');`
+* `$app['router']->get(['page' => 'my_menu_slug', 'action' => 'index'], 'home@index');`
 
 The above examples will cause Sketch to look for the class `HomeController`, and run its `index()` method. You may also pass in a callback function instead of a controller reference. The router has methods `$router->post()`, or `$router->any()` to handle GET and POST requests. For methods other than GET and POST, use `$router->register('METHOD', $params, $controller)`. Note that, whether you pass a query string or an array, the order of the variables passed does not matter. Also, when passing a query string, you can include or exclude the '?'.
 
