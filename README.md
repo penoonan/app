@@ -164,4 +164,4 @@ If that's too simplistic for your project, remember you are in no way required t
 
 By default, Sketch uses the [Valitron](http://github.com/vlucas/valitron) validation class. You can use Valitron directly in any class, and Sketch also provides a `\Sketch\ValidatorFactory` class so that you can more easily inject validator instances or set up validation as a service.
 
-Sketch was created by Patrick Noonan at [ArcStone](http://www.arcstone.com), a web development and design agency in Minneapolis.
+Sketch was created at [ArcStone](http://www.arcstone.com), a web development and design agency in Minneapolis.
