@@ -19,7 +19,7 @@ We'll add support for more features as we go along.
  * [Getting Started](#getting-started)
  * [Unit Testing](#unit-testing)
  * [Menus](#menus)
- * [Menu Routes](#menu-routes)
+     * [Menu Routes](#menu-routes)
  * [Custom Post Types](#custom-post-types)
  * [Metaboxes](#metaboxes)
  * [Taxonomies](#taxonomies)
@@ -63,7 +63,7 @@ If you need to add any actions associated with the menu (i.e., enqueueing public
 
 Define your menu classes like you see in the `app/menus` folder, and instantiate them in `index.php` by calling `$app->make('MyMenu')`;
 
-##Menu Routes
+###Menu Routes
 
 Sketch's router is primarily intended to create navigation for menu pages in the Wordpress admin backend. For now, it's not interested in creating front-end routes or "hijacking" Wordpress' native routing system. Instead, it's designed to play nicely with what's already there.
 
