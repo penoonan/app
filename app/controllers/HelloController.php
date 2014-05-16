@@ -23,11 +23,11 @@ class HelloController extends \Sketch\BaseController {
 
     public function index()
     {
-        $data = array(
+        $data = [
           'page' => $this->request->query->get('page'),
           'posts' => $this->post_model->all(),
           'ello' => $this->my_class->ello()
-        );
+        ];
 
         $this->render('hello::hello', $data);
     }
@@ -37,8 +37,12 @@ class HelloController extends \Sketch\BaseController {
         $this->render('hello::submenu');
     }
 
-    public function metabox()
+    public function metabox($post, $metabox)
     {
-        $this->render('hello::metabox');
+        $data = [
+            'post' => $post,
+            'metabox' => $metabox
+        ];
+        $this->render('hello::metabox', $data);
     }
 }

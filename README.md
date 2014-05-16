@@ -68,13 +68,48 @@ Right now, the router is very simple. It can only match identical strings, or `{
 
 `$router->get(array('page' => 'my_foo_menu_slug', 'action' => 'edit', 'id' => '{int}'), 'foo@edit');`
 
-Define your menu routes in `app/menus/routes.php`, and be sure to put your routes between the comments that say "START ROUTES!" and "END ROUTES!". Try not to touch the other stuff unless you really know what you're doing. Since the first given matching route will be selected, define your most specific routes first and your least specific routes last.
+Define your menu routes in `app/menus/routes.php`. Since the first given matching route will be selected, define your most specific routes first and your least specific routes last.
 
 ##Custom Post Types
 
 Similar to menus, you can create a new custom post type by extending the `\Sketch\CustomPostType\BaseCustomPostType` class. Again, define the classes' arguments as properties on the class. You can define `$args`, `$labels`, and `$rewrite` variables as their own separate arrays. Sketch will add the `$labels` and `$rewrite` parameters to the `$args` array automatically when creating the post type at run-time. This arrangement does distort the normal "Wordpress way" a bit - but it seemed like the most readable solution.
 
 Add metaboxes and taxonomies to your Custom Post Type when you instantiate it in `index.php` (see the first code sample at the top of the page).
+
+##Metaboxes
+
+Sketch metaboxes are a lot like custom post types and menus. Create a metabox by extending the '\Sketch\Metabox\BaseMetabox" class. Define the metabox arguments as parameters on the class.
+
+But wait - that's not all! In addition to defining standard metabox arguments as class parameters, you must also specify a controller and method to handle metabox's business logic.
+
+Here is code for the basic metabox that ships with the sample Sketch app:
+
+    class HelloMetabox extends BaseMetabox {
+        protected
+            $id = 'hello_metabox',
+            $post_type = 'hello_post_type',
+            $callback_controller = 'hello@metabox'
+        ;
+    }
+
+Just like with menu routes, the metabox's controller is resolved out of the IoC container and has access to both the Symfony Request object and the Plates template system. In addition, (like all WordPress metaboxes) it will also be passed information about the currently displayed post, and the metabox itself. Here is our sample metabox controller:
+
+    public function metabox($post, $metabox)
+    {
+        $data = [
+            'post' => $post,
+            'metabox' => $metabox
+        ];
+        $this->render('hello::metabox', $data);
+    }
+
+There are two ways to instantiate this metabox in your application. The first is illustrated above - by calling `->addMetabox($app->make('HelloMetabox'))` on the post type that the metabox should be added to. Note that, if you use this method, you do not need to set a `$post_type` parameter on the metabox itself. It will be set automatically when you add it to the post type object.
+
+The second method is to call the metabox's `->manuallyAddAction()` function after you've instantiated it in your Sketch app's `index.php` file. For example:
+
+     $app->make('HelloMetabox')->manuallyAddAction();
+
+ If you use this method, then the `$post_type` parameter must be set. Otherwise, nothing will display!
 
 ##Taxonomies
 

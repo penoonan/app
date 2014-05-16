@@ -1,4 +1,5 @@
 <?php
+
 $app = require_once 'app/bootstrap.php';
 // Add our sample menus and submenus
 $app->make('Hello\Hello');
