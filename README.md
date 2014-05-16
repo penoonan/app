@@ -15,7 +15,18 @@ Sketch is a tiny framework for creating well-structured MVC applications in Word
 
 We'll add support for more features as we go along.
 
-*[What Makes Sketch Unique?](#what-makes-sketch-unique)
+ * [What Makes Sketch Unique?](#what-makes-sketch-unique)
+ * [Getting Started](#getting-started)
+ * [Unit Testing](#unit-testing)
+ * [Menus](#menus)
+ * [Menu Routes](#menu-routes)
+ * [Custom Post Types](#custom-post-types)
+ * [Metaboxes](#metaboxes)
+ * [Taxonomies](#taxonomies)
+ * [Controllers](#controllers)
+ * [Views](#views)
+ * [Models](#models)
+ * [Validation](#validation)
 
 ##What Makes Sketch Unique?
 
@@ -153,12 +164,4 @@ If that's too simplistic for your project, remember you are in no way required t
 
 By default, Sketch uses the [Valitron](http://github.com/vlucas/valitron) validation class. You can use Valitron directly in any class, and Sketch also provides a `\Sketch\ValidatorFactory` class so that you can more easily inject validator instances or set up validation as a service.
 
-##Where Did Sketch Come From?
-
-Sketch was created at [ArcStone](http://www.arcstone.com), a Minneapolis Web / Marketing agency. "Sketch" refers both to the generally "roughed out" feel of the framework, and to a loose pronunciation of the acronym you get from ArcStone's [core values](http://www.arcstone.com/who-we-are/core-values/):
-
-* Service
-* Craftsmanship
-* Evolution
-* Stewardship
-* Happiness
+Sketch was created at [ArcStone](http://www.arcstone.com).
