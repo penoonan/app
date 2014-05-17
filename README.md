@@ -13,7 +13,7 @@ Sketch is a tiny framework for creating well-structured MVC applications in Word
         ->addMetabox($app->make('HelloMetabox'))
         ->addTaxonomy($app->make('HelloTaxonomy'));
 
-We'll add support for more features as we go along.
+##Table of Contents
 
  * [What Makes Sketch Unique?](#what-makes-sketch-unique)
      * [When Should I Use Sketch](#when-should-i-use-sketch)
