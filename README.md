@@ -15,20 +15,22 @@ Sketch is a tiny framework for creating well-structured MVC applications in Word
 
 ##Table of Contents
 
- * [What Makes Sketch Unique?](#what-makes-sketch-unique)
+ 1. [What Makes Sketch Unique?](#what-makes-sketch-unique)
      * [When Should I Use Sketch](#when-should-i-use-sketch)
- * [Getting Started](#getting-started)
- * [Unit Testing](#unit-testing)
- * [Controllers](#controllers)
- * [Views](#views)
- * [Models](#models)
- * [The Wp Wrapper](#the-wp-wrapper)
- * [Menus](#menus)
+ 2. [Getting Started](#getting-started)
+ 3. [Unit Testing](#unit-testing)
+ 4. [Controllers](#controllers)
+ 5. [Views](#views)
+ 6. [Models](#models)
+ 7. [The Wp Wrapper](#the-wp-wrapper)
+ 8. [Menus](#menus)
      * [Menu Routes](#menu-routes)
- * [Custom Post Types](#custom-post-types)
- * [Metaboxes](#metaboxes)
- * [Taxonomies](#taxonomies)
- * [Validation](#validation)
+ 9. [Custom Post Types](#custom-post-types)
+ 10. [Metaboxes](#metaboxes)
+ 11. [Taxonomies](#taxonomies)
+ 12. [Validation](#validation)
+ 13. [Service Providers](#service-providers)
+ 14. [Backwards Compatibility](#backwards-compatibility)
 
 ##What Makes Sketch Unique?
 
@@ -84,7 +86,9 @@ For a view corresponding to the above controller example, create a file called `
 
 A few variables automatically get passed to every view: `nonce_name`, `nonce_action`, `message`, and `errors`. In addition, Sketch comes with a few simple Plates extensions, most notably the `wp()` function, which provides access to `\Sketch\WpApiWrapper`. Pass the name of the function as the first argument, and an array of your parameters as the second.
 
-See the [Plates](http://www.platesphp.com) documentation to learn more about what you can do with views.
+See the [Plates](http://www.platesphp.com) documentation to learn more about what you can do with default views.
+
+Since Plates is registered as a [service provider](#service-providers), it is not too difficult to swap it out for the templating engine of your choice. Feel free to ask if you need help with this!
 
 ##Models
 
@@ -173,4 +177,49 @@ To create a taxonomy, extend the `\Sketch\Taxonomy\BaseTaxonomy` class, and add 
 
 ##Validation
 
-By default, Sketch uses the [Valitron](http://github.com/vlucas/valitron) validation class. You can use Valitron directly in any class, and Sketch also provides a `\Sketch\ValidatorFactory` class so that you can more easily inject validator instances or set up validation as a service.
+Sketch ships with the [Valitron](http://github.com/vlucas/valitron) validation class by default. You can use Valitron directly in any class, and Sketch also provides a `\Sketch\ValidatorFactory` class so that you can more easily inject validator instances or set up validation as a service.
+
+##Service Providers
+
+Services providers are a great place to put bootstrap code for third party services and register them on the Sketch Application. To create a service provider, first create a new class that implements `\Sketch\ServiceProviderInterface`.
+
+Sketch service providers only need to implement one method: `register(\Sketch\Application $app)`. That method is a good place to register bindings on the application. For example:
+
+    use \Sketch\Application;
+    use \Sketch\ServiceProviderInterface;
+
+    class MyProvider implements ServiceProviderInterface {
+
+        public function register(Application $app) {
+            $app->bind('FooInterface', function() {
+                $config = array('foo' => 'bar');
+                return new FooClass($config);
+            });
+        }
+    }
+
+You may also pass in an array of configuration values as the second parameter of the register method:
+
+    public function register(Application $app, $config) {
+        $app->bind('FooInterface', function() use($config) {
+            return new FooClass($config);
+        });
+    }
+
+Register your service providers in `Sketch\index.php`, right next to where you instantiate menus, custom post types, etc. This is also where you would pass in those configuration values, if the situation called for it:
+
+    $app = require_once 'app/bootstrap.php';
+
+    $config = array('foo' => 'bar');
+    $app->register(new MyProvider(), $config);
+
+To see a sample service provider being registered, look at the `app/bootstrap` file where the Plates template system is registered as a service.
+
+##Backwards Compatibility
+
+Sketch is in an alpha stage, and some changes to the core framework will necessitate changes to the default application's bootstrap code.
+
+If you are using Sketch, and running `composer update` causes your application to break (please never do that without testing locally first), then there are two things you can do:
+
+ 1. Copy the code from [the most current Sketch bootstrap file](https://github.com/sketchwp/app/blob/master/app/bootstrap.php) into your application's `app/bootstrap.php` file. This *should* fix the issue immediately.
+ 2. If #1 doesn't work, create a github issue or [contact me directly](https://github.com/pnoonan) if it's urgent. I'm happy to help!
