@@ -217,7 +217,7 @@ To see a sample service provider being registered, look at the `app/bootstrap` f
 
 ##Backwards Compatibility
 
-Sketch is in an alpha stage, and some changes to the core framework will necessitate changes to the default application's bootstrap code.
+Sketch is in an alpha stage, and some changes to the core framework will necessitate changes to the sample application's default bootstrap code.
 
 If you are using Sketch, and running `composer update` causes your application to break (please never do that without testing locally first), then there are two things you can do:
 
