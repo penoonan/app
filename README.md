@@ -1,6 +1,6 @@
 #Sketch
 
-Sketch is a tiny framework for creating well-structured MVC applications in Wordpress. Right now Sketch is focused on making it easier to create menu pages where site admins can work with data, as well as custom post types, metaboxes, and taxonomies:
+Sketch is a tiny framework for creating well-structured MVC applications in Wordpress. It provides a set of tools and a suggested architecture for building custom Wordpress functionality in a testable, loosely-coupled way. Right now Sketch is focused on making it easier to create menu pages where site admins can work with data, as well as custom post types, metaboxes, and taxonomies:
 
     $app = require_once 'app/bootstrap.php';
 
@@ -35,7 +35,7 @@ Sketch is a tiny framework for creating well-structured MVC applications in Word
 
 ##What Makes Sketch Unique?
 
-Sketch takes an Object-Oriented approach to interacting with Wordpress. While it's not the first attempt at bringing an MVC style to Wordpress development, it is (to my knowledge) the first to take advantage of Composer autoloading and [Laravel's IoC container](http://laravel.com/docs/ioc). Sketch provides a set of tools and a suggested architecture for building custom Wordpress functionality in a testable, loosely-coupled way.
+Sketch takes an Object-Oriented approach to interacting with Wordpress. While it's not the first attempt at bringing an MVC style to Wordpress development, it is (to my knowledge) the first to take advantage of Composer autoloading and [Laravel's IoC container](http://laravel.com/docs/ioc).
 
 Sketch has a very small footprint. It's intended to be able to work well in environments lacking command-line access (e.g., shared cloud hosting), which only means that Sketch's default production dependencies are minimal enough that you don't need to sweat having them under version control if need be.
 
