@@ -31,7 +31,7 @@ Sketch is a tiny framework for creating well-structured MVC applications in Word
  12. [Validation](#validation)
  13. [Service Providers](#service-providers)
  14. [Breaking Changes and Backwards Compatibility](#breaking-changes-and-backwards-compatibility)
- 15. [Props](#mad-props)
+ 15. [Mad Props](#mad-props)
 
 ##What Makes Sketch Unique?
 
