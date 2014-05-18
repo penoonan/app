@@ -216,7 +216,7 @@ Register your service providers in `Sketch\index.php`, right next to where you i
     $config = array('foo' => 'bar');
     $app->register(new MyProvider(), $config);
 
-To see more service provider examples, look at the `app/bootstrap` file where the Plates template system and Sketch's default controller factory is registered.
+To see more service provider examples, look at the `app/bootstrap.php` file where the Plates template system and Sketch's default controller factory is registered.
 
 ##Breaking Changes and Backwards Compatibility
 
