@@ -230,4 +230,4 @@ If you are using Sketch (which you are not, according to packagist), and running
 
 ##Mad Props
 
-Sketch was create at [ArcStone](http://www.arcstone.com), a web development, design and marketing agency located in Minneapolis, Minnesota.
+Sketch was created at [ArcStone](http://www.arcstone.com), a web development, design and marketing agency located in Minneapolis, Minnesota.
