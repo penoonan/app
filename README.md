@@ -30,7 +30,7 @@ Sketch is a tiny framework for creating well-structured MVC applications in Word
  11. [Taxonomies](#taxonomies)
  12. [Validation](#validation)
  13. [Service Providers](#service-providers)
- 14. [Backwards Compatibility](#backwards-compatibility)
+ 14. [Breaking Changes and Backwards Compatibility](#breaking-changes-and-backwards-compatibility)
 
 ##What Makes Sketch Unique?
 
@@ -64,9 +64,9 @@ It takes a bit of discipline, but that little layer of abstraction is all you ne
 
 ##Controllers
 
-Controllers come populated with an instance of the [Plates](http://www.platesphp.com) template system and the [Symfony Request](http://symfony.com/doc/current/components/http_foundation/introduction.html) object by default. For any other dependencies, use type-hinting and constructor injection - the IoC container will pass them in automatically. Of course, if you are type-hinting an Interface as a dependency, be sure to use `$app->bind('FooInterface', 'FooConcrete')` in your index.php file to tell the IoC container which concrete class it should inject.
+Sketch's default controllers come populated with an instance of the template system (Plates, by default) and the [Symfony Request](http://symfony.com/doc/current/components/http_foundation/introduction.html) object. For any other dependencies, use type-hinting and constructor injection - the IoC container will pass them in automatically. Of course, if you are type-hinting an Interface as a dependency, be sure to use `$app->bind('FooInterface', 'FooConcrete')` in your index.php file to tell the IoC container which concrete class it should inject.
 
-Say you want to make a controller that grabs `page` from the query string (i.e., the menu slug) and passes it to the view. Here's how you would do that:
+Say you want to make a controller that grabs `page` from the query string (i.e., the menu slug) and passes it to the view. Here's how you would do that using Sketch's default controllers:
 
     Class HomeController extends \Sketch\WpBaseController {
 
@@ -80,6 +80,8 @@ Say you want to make a controller that grabs `page` from the query string (i.e.,
         }
     }
 
+If you do not wish to use Sketch's default controllers, you don't have to! You can register a different controller type using a [service provider](#service-providers). Feel free to ask for help with this! The docs for that have not yet been written.
+
 ##Views
 
 For a view corresponding to the above controller example, create a file called `app/views/home.php`. To output the `page` variable, use `<?= $this->page ?>` anywhere in your template. To escape that value (not a bad idea, since it's coming from the query string), use `<?= $this->e($this->page) ?>`.
@@ -88,7 +90,7 @@ A few variables automatically get passed to every view: `nonce_name`, `nonce_act
 
 See the [Plates](http://www.platesphp.com) documentation to learn more about what you can do with default views.
 
-Since Plates is registered as a [service provider](#service-providers), it is not too difficult to swap it out for the templating engine of your choice. Feel free to ask if you need help with this!
+Like Sketch's default controller, Plates is registered as a [service provider](#service-providers). It is not too difficult to swap it out for the templating engine of your choice. Feel free to ask for help with this! The docs for that have not yet been written.
 
 ##Models
 
@@ -117,9 +119,9 @@ Wordpress's admin menu navigation is largely based on the contents of the query 
 
 These examples are all the same:
 
-* `$app['router']->get('?page=my_menu_slug&action=index', 'home@index');`
-* `$app['router']->get('action=index&page=my_menu_slug', 'home@index');`
-* `$app['router']->get(['page' => 'my_menu_slug', 'action' => 'index'], 'home@index');`
+* `$app['router']->get('?page=my_menu_slug&action=index', 'HomeController@index');`
+* `$app['router']->get('action=index&page=my_menu_slug', 'HomeController@index');`
+* `$app['router']->get(['page' => 'my_menu_slug', 'action' => 'index'], 'HomeController@index');`
 
 The above examples will cause Sketch to look for the class `HomeController`, and run its `index()` method. You may also pass in a callback function instead of a controller reference. The router has methods `$router->post()`, or `$router->any()` to handle GET and POST requests. For methods other than GET and POST, use `$router->register('METHOD', $params, $controller)`. Note that, whether you pass a query string or an array, the order of the variables passed does not matter. Also, when passing a query string, you can include or exclude the '?'.
 
@@ -147,7 +149,7 @@ Here is code for the basic metabox that ships with the sample Sketch app:
         protected
             $id = 'hello_metabox',
             $post_type = 'hello_post_type',
-            $callback_controller = 'hello@metabox'
+            $callback_controller = 'HelloController@metabox'
         ;
     }
 
@@ -162,7 +164,7 @@ Just like with menu routes, the metabox's controller is resolved out of the IoC 
         $this->render('hello::metabox', $data);
     }
 
-There are two ways to instantiate this metabox in your application. The first is illustrated above - by calling `->addMetabox($app->make('HelloMetabox'))` on the post type that the metabox should be added to. Note that, if you use this method, you do not need to set a `$post_type` parameter on the metabox itself. It will be set automatically when you add it to the post type object.
+There are two ways to instantiate this metabox in your application. The first is illustrated at the top of this page - by calling `->addMetabox($app->make('HelloMetabox'))` on the post type that the metabox should be added to. Note that, if you use this method, you do not need to set a `$post_type` parameter on the metabox itself. It will be set automatically when you add it to the post type object.
 
 The second method is to call the metabox's `->manuallyAddAction()` function after you've instantiated it in your Sketch app's `index.php` file. For example:
 
@@ -213,13 +215,14 @@ Register your service providers in `Sketch\index.php`, right next to where you i
     $config = array('foo' => 'bar');
     $app->register(new MyProvider(), $config);
 
-To see a sample service provider being registered, look at the `app/bootstrap` file where the Plates template system is registered as a service.
+To see more service provider examples, look at the `app/bootstrap` file where the Plates template system and Sketch's default controller factory is registered.
 
-##Backwards Compatibility
+##Breaking Changes and Backwards Compatibility
 
 Sketch is in an alpha stage, and some changes to the core framework will necessitate changes to the sample application's default bootstrap code.
 
-If you are using Sketch, and running `composer update` causes your application to break (please never do that without testing locally first), then there are two things you can do:
+If you are using Sketch, and running `composer update` causes your application to break (please never update production dependencies without testing locally first), then there are two things you can do:
 
- 1. Copy the code from [the most current Sketch bootstrap file](https://github.com/sketchwp/app/blob/master/app/bootstrap.php) into your application's `app/bootstrap.php` file. This *should* fix the issue immediately.
- 2. If #1 doesn't work, create a github issue or [contact me directly](https://github.com/pnoonan) if it's urgent. I'm happy to help!
+ 1. Copy the code from [the most current Sketch bootstrap file](https://github.com/sketchwp/app/blob/master/app/bootstrap.php) into your application's `app/bootstrap.php` file.
+ 2. Update your routes! The `Sketch\ControllerDispatcher` was changed so that you must now pass the controller's full class name to the router. I.e., change `hello@index` to `HelloController@index`.
+ 3. If #1 and #2 don't work, create a github issue or, if it's urgent, [contact me directly](https://github.com/pnoonan). I'm happy to help!
