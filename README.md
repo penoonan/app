@@ -219,7 +219,7 @@ To see more service provider examples, look at the `app/bootstrap` file where th
 
 ##Breaking Changes and Backwards Compatibility
 
-Sketch is in an alpha stage, and some changes to the core framework will necessitate changes to the sample application's default bootstrap code.
+Sketch is in some sort of alpha or beta stage, and some changes to the core framework will necessitate changes to the application.
 
 If you are using Sketch, and running `composer update` causes your application to break (please never update production dependencies without testing locally first), then there are two things you can do:
 
