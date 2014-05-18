@@ -36,7 +36,7 @@ Sketch is a tiny framework for creating well-structured MVC applications in Word
 
 Sketch takes an Object-Oriented approach to interacting with Wordpress. While it's not the first attempt at bringing an MVC style to Wordpress development, it is (to my knowledge) the first to take advantage of Composer autoloading and [Laravel's IoC container](http://laravel.com/docs/ioc). Sketch provides a set of tools and a suggested architecture for building custom Wordpress functionality in a testable, loosely-coupled way.
 
-Sketch has a very small footprint. It's intended to be able to work well in environments lacking command-line access (e.g., shared cloud VPNs), which only means that Sketch's default production dependencies are minimal enough that you don't need to sweat having them under version control if need be.
+Sketch has a very small footprint. It's intended to be able to work well in environments lacking command-line access (e.g., shared cloud hosting), which only means that Sketch's default production dependencies are minimal enough that you don't need to sweat having them under version control if need be.
 
 ###When Should I Use Sketch?
 
