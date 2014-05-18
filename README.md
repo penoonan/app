@@ -171,7 +171,7 @@ The second method is to call the metabox's `->manuallyAddAction()` function afte
 
      $app->make('HelloMetabox')->manuallyAddAction();
 
- If you use this method, then the `$post_type` parameter must be set. Otherwise, nothing will display!
+ If you use this method, then the `$post_type` parameter must be set. Otherwise, it won't display anywhere.
 
 ##Taxonomies
 
