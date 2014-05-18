@@ -123,11 +123,11 @@ These examples are all the same:
 * `$app['router']->get('action=index&page=my_menu_slug', 'HomeController@index');`
 * `$app['router']->get(['page' => 'my_menu_slug', 'action' => 'index'], 'HomeController@index');`
 
-The above examples will cause Sketch to look for the class `HomeController`, and run its `index()` method. You may also pass in a callback function instead of a controller reference. The router has methods `$router->post()`, or `$router->any()` to handle GET and POST requests. For methods other than GET and POST, use `$router->register('METHOD', $params, $controller)`. Note that, whether you pass a query string or an array, the order of the variables passed does not matter. Also, when passing a query string, you can include or exclude the '?'.
+The above examples will cause Sketch to look for the class `HomeController`, and run its `index()` method. You may also pass in a callback function instead of a controller reference. The router has methods `post()`, or `any()` to handle GET and POST requests. For methods other than GET and POST, use `register('METHOD', $params, $controller)`. Note that, whether you pass a query string or an array, the order of the variables passed does not matter. Also, when passing a query string, you can include or exclude the '?'.
 
 Right now, the router is very simple. It can only match identical strings, or `{int}` variables. So if you wanted to edit a particular "foo" item, your route might look something like this:
 
-`$router->get(array('page' => 'my_foo_menu_slug', 'action' => 'edit', 'id' => '{int}'), 'foo@edit');`
+`$app['router']->get(array('page' => 'my_foo_menu_slug', 'action' => 'edit', 'id' => '{int}'), 'foo@edit');`
 
 Define your menu routes in `app/menus/routes.php`. Since the first matching route will be selected, define your most specific routes first and your least specific routes last.
 
