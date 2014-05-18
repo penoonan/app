@@ -42,7 +42,7 @@ Sketch has a very small footprint. It's intended to be able to work well in envi
 
 Sketch is inspired by full stack PHP frameworks like [Laravel](http://laravel.com) and [Silex](http://silex.sensiolabs.org/), but it is in no way meant to serve as a replacement for them. In fact, it's quite rudimentary in comparison! The goal is simply to provide a better way of working with Wordpress, whenever it makes sense to work with Wordpress.
 
-So instead of asking, "when should I use Sketch?", the better question might be, "when should I use Wordpress?" It's foolish to ignore the benefits of the free, instant, easy-to-use platform Wordpress provides. But it's also foolish to ignore Wordpress' limitations. Sketch can expand what you can do well with Wordpress, but it can't expand what Wordpress can do well.
+So instead of asking, "when should I use Sketch?", the better question might be, "when should I use Wordpress?" It's foolish to ignore the benefits of the Wordpress platform, but it's also foolish to ignore its limitations. Sketch can expand what you can do well with Wordpress, but it can't expand what Wordpress can do well.
 
 That being said - does your site include more than a couple custom post types, metaboxes, taxonomies and/or settings pages? Does it interact with 3rd party APIs? Give Sketch a try!
 
@@ -64,7 +64,7 @@ It takes a bit of discipline, but that little layer of abstraction is all you ne
 
 ##Controllers
 
-Controllers come populated with an instance of the [Plates](http://www.platesphp.com) template system and the [Symfony Request](http://symfony.com/doc/current/components/http_foundation/introduction.html) object by default. For any other dependencies, use type-hinting and constructor injection - the IoC container will pass them in automatically. Of course, if you are type-hinting an Interface as a dependency, be sure to use `$app->bind()` in your index.php file to specify which concrete class should be used.
+Controllers come populated with an instance of the [Plates](http://www.platesphp.com) template system and the [Symfony Request](http://symfony.com/doc/current/components/http_foundation/introduction.html) object by default. For any other dependencies, use type-hinting and constructor injection - the IoC container will pass them in automatically. Of course, if you are type-hinting an Interface as a dependency, be sure to use `$app->bind('FooInterface', 'FooConcrete')` in your index.php file to tell the IoC container which concrete class it should inject.
 
 Say you want to make a controller that grabs `page` from the query string (i.e., the menu slug) and passes it to the view. Here's how you would do that:
 

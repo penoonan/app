@@ -11,6 +11,9 @@ $app->register(new Sketch\Providers\PlatesServiceProvider(), array(
     'template.asset_dir' => __DIR__.'/public'
 ));
 
+//Register the default Sketch Controller Provider
+$app->register(new Sketch\Providers\ControllerFactoryProvider());
+
 //Register all them routes
 require_once __DIR__ . '/menus/routes.php';
 
