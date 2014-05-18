@@ -84,7 +84,7 @@ If you do not wish to use Sketch's default controllers, you don't have to! You c
 
 ##Views
 
-For a view corresponding to the above controller example, create a file called `app/views/home.php`. To output the `page` variable, use `<?= $this->page ?>` anywhere in your template. To escape that value (not a bad idea, since it's coming from the query string), use `<?= $this->e($this->page) ?>`.
+For a view corresponding to the above controller example, create a file called `app/views/home.php`. To output the `page` variable, use `<?= $this->page ?>` anywhere in your template.
 
 A few variables automatically get passed to every view: `nonce_name`, `nonce_action`, `message`, and `errors`. In addition, Sketch comes with a few simple Plates extensions, most notably the `wp()` function, which provides access to `\Sketch\WpApiWrapper`. Pass the name of the function as the first argument, and an array of your parameters as the second.
 
