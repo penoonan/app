@@ -134,7 +134,7 @@ Define your menu routes in `app/menus/routes.php`. Since the first matching rout
 
 ##Custom Post Types
 
-Similar to menus, you can create a new custom post type by extending the `\Sketch\CustomPostType\BaseCustomPostType` class. Again, define the classes' arguments as properties on the class. You can define `$args`, `$labels`, and `$rewrite` variables as their own separate arrays. Sketch will add the `$labels` and `$rewrite` parameters to the `$args` array automatically when creating the post type at run-time. This arrangement does distort the normal "Wordpress way" a bit - but it seemed like the most readable solution.
+Similar to menus, you can create a new custom post type by extending the `\Sketch\CustomPostType\BaseCustomPostType` class. Again, define the post type's arguments as properties on the class. You can define `$args`, `$labels`, and `$rewrite` variables as their own separate arrays. Sketch will add the `$labels` and `$rewrite` parameters to the `$args` array automatically when creating the post type at run-time. This arrangement does distort the normal "Wordpress way" a bit - but it seemed like the most readable solution.
 
 Add metaboxes and taxonomies to your Custom Post Type when you instantiate it in `index.php` (see the first code sample at the top of the page).
 
