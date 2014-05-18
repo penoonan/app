@@ -224,5 +224,5 @@ Sketch is in some sort of alpha or beta stage, and some changes to the core fram
 If you are using Sketch, and running `composer update` causes your application to break (please never update production dependencies without testing locally first), then there are two things you can do:
 
  1. Copy the code from [the most current Sketch bootstrap file](https://github.com/sketchwp/app/blob/master/app/bootstrap.php) into your application's `app/bootstrap.php` file.
- 2. Update your routes! The `Sketch\ControllerDispatcher` was changed so that you must now pass the controller's full class name to the router. I.e., change `hello@index` to `HelloController@index`.
+ 2. Update your routes in `app/menus.php`! The `Sketch\ControllerDispatcher` was changed so that you must now pass the controller's full class name to the router. I.e., change `hello@index` to `HelloController@index`.
  3. If #1 and #2 don't work, create a github issue or, if it's urgent, [contact me directly](https://github.com/pnoonan). I'm happy to help!
