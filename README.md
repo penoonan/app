@@ -127,7 +127,7 @@ The above examples will cause Sketch to look for the class `HomeController`, and
 
 Right now, the router is very simple. It can only match identical strings, or `{int}` variables. So if you wanted to edit a particular "foo" item, your route might look something like this:
 
-`$app['router']->get(array('page' => 'my_foo_menu_slug', 'action' => 'edit', 'id' => '{int}'), 'foo@edit');`
+`$app['router']->get(array('page' => 'my_foo_menu_slug', 'action' => 'edit', 'id' => '{int}'), 'FooController@edit');`
 
 Define your menu routes in `app/menus/routes.php`. Since the first matching route will be selected, define your most specific routes first and your least specific routes last.
 
