@@ -42,7 +42,7 @@ Sketch has a very small footprint. It's intended to be able to work well in envi
 
 Sketch is inspired by full stack PHP frameworks like [Laravel](http://laravel.com) and [Silex](http://silex.sensiolabs.org/), but it is in no way meant to serve as a replacement for them. In fact, it's quite rudimentary in comparison! The goal is simply to provide a better way of working with Wordpress, whenever it makes sense to work with Wordpress.
 
-So instead of asking, "when should I use Sketch?", the better question might be, "when should I use Wordpress?" It's foolish to ignore the benefits of the Wordpress platform, but it's also foolish to ignore its limitations. Sketch can expand what you can do well with Wordpress, but it can't expand what Wordpress can do well.
+So instead of asking, "when should I use Sketch?", the better question might be, "when should I use Wordpress?" Wordpress has many benefits, but it's foolish to ignore its limitations. Sketch can expand what you can do well with Wordpress, but it can't expand what Wordpress can do well.
 
 That being said - does your site include more than a couple custom post types, metaboxes, taxonomies and/or settings pages? Does it interact with 3rd party APIs? Give Sketch a try!
 
