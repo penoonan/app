@@ -177,7 +177,6 @@ The second method is to call the metabox's `->manuallyAddAction()` function afte
 
 To create a taxonomy, extend the `\Sketch\Taxonomy\BaseTaxonomy` class, and add the taxonomy's parameters in the same way as for a custom post type. In addition to the `$args`, `$labels` and `$rewrite` arrays, taxonomies can also have a `$capabilities` array.
 
-
 ##Validation
 
 Sketch ships with the [Valitron](http://github.com/vlucas/valitron) validation class by default. You can use Valitron directly in any class, and Sketch also provides a `\Sketch\ValidatorFactory` class so that you can more easily inject validator instances or set up validation as a service.
