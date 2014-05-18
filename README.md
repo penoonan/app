@@ -222,7 +222,7 @@ To see more service provider examples, look at the `app/bootstrap.php` file wher
 
 Sketch is in some sort of alpha or beta stage, and some changes to the core framework will necessitate changes to the application.
 
-If you are using Sketch (which you are not, according to packagist), and running `composer update` causes your application to break (please never update production dependencies without testing locally first), then there are two things you can do:
+If you are using Sketch (which you are not, according to packagist), and running `composer update` causes your application to break (please never update production dependencies without testing locally first), here are a few things you can do:
 
  1. Copy the code from [the most current Sketch bootstrap file](https://github.com/sketchwp/app/blob/master/app/bootstrap.php) into your application's `app/bootstrap.php` file.
  2. Update your routes in `app/menus.php`. The `Sketch\ControllerDispatcher` was recently changed so that you must now pass the controller's full class name to the router. I.e., change `hello@index` to `HelloController@index`.
