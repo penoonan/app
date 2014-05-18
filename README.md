@@ -31,7 +31,7 @@ Sketch is a tiny framework for creating well-structured MVC applications in Word
  12. [Validation](#validation)
  13. [Service Providers](#service-providers)
  14. [Breaking Changes and Backwards Compatibility](#breaking-changes-and-backwards-compatibility)
- 15. [Props](#props)
+ 15. [Props](#mad-props)
 
 ##What Makes Sketch Unique?
 
@@ -228,6 +228,6 @@ If you are using Sketch (which you are not, according to packagist), and running
  2. Update your routes in `app/menus.php`. The `Sketch\ControllerDispatcher` was recently changed so that you must now pass the controller's full class name to the router. I.e., change `hello@index` to `HelloController@index`.
  3. If #1 and #2 don't work, create a github issue or, if it's urgent, [contact me directly](https://github.com/pnoonan). I'm happy to help!
 
- ##Props
+##Mad Props
 
- Sketch was create at [ArcStone](http://www.arcstone.com), a Minneapolis web development, design and marketing agency.
+Sketch was create at [ArcStone](http://www.arcstone.com), a Minneapolis web development, design and marketing agency.
