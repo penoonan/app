@@ -142,7 +142,7 @@ Add metaboxes and taxonomies to your Custom Post Type when you instantiate it in
 
 Sketch metaboxes are a lot like custom post types and menus. Create a metabox by extending the `\Sketch\Metabox\BaseMetabox` class. Define the metabox arguments as parameters on the class.
 
-But wait - that's not all! In addition to defining standard metabox arguments as class parameters, you must also specify a controller and method to handle metabox's business logic.
+But wait - that's not all! In addition to defining standard metabox arguments as class parameters, you must also specify a controller and method to handle the metabox's business logic.
 
 Here is code for the basic metabox that ships with the sample Sketch app:
 
