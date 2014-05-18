@@ -183,7 +183,7 @@ Sketch ships with the [Valitron](http://github.com/vlucas/valitron) validation c
 
 ##Service Providers
 
-Services providers are a great place to put bootstrap code for third party services and register them on the Sketch Application. To create a service provider, first create a new class that implements `\Sketch\ServiceProviderInterface`.
+Service providers are a great place to put bootstrap code for third party services and register them on the Sketch Application. To create a service provider, first create a new class that implements `\Sketch\ServiceProviderInterface`.
 
 Sketch service providers only need to implement one method: `register(\Sketch\Application $app)`. That method is a good place to register bindings on the application. For example:
 
