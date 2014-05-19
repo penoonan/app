@@ -5,8 +5,8 @@ $app['router']->get(array('page' => 'sketch_hello_submenu'), 'HelloController@su
 
 // Use a callback!
 $app['router']->get('page=sketch_hello_callback', function() use($app) {
-      $data = array(
+    $data = array(
         'page' => $app['request']->query->get('page')
-      );
-      echo $app['template']->render('callback', $data);
-  });
+    );
+    echo $app['template']->render('callback', $data);
+});
