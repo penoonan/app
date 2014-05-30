@@ -66,7 +66,7 @@ If you are installing into a project that already has a `composer.json` file and
 
  1. Either `git clone https://github.com/sketchwp/app.git` or download and unzip this sample app into your project's root directory.
  2. Add `"sketch/sketch": "dev-master"` to the "require" section of your `composer.json` file.
- 3. Run `composer update` from the command line. Feel free to include the `--no-dev` flag for a speedy installation that will omit PHPUnit, if you already have / don't need it.
+ 3. Run `composer update` from the command line.
  4. Like with the fresh install, require `path\to\sketch.index.php` from inside your `functions.php` file, plugin, or wherever you wish to instantiate Sketch.
 
 ##Unit Testing
