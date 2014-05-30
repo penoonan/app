@@ -42,7 +42,7 @@ Sketch takes an Object-Oriented approach to interacting with Wordpress. While it
 
 Sketch has a very small footprint. It's intended to be able to work well in environments lacking command-line access (e.g., shared cloud hosting), which only means that Sketch's default production dependencies are minimal enough that you don't need to sweat having them under version control if need be.
 
-###When Should I Use Sketch?
+####When Should I Use Sketch?
 
 Sketch is inspired by full stack PHP frameworks like [Laravel](http://laravel.com) and [Silex](http://silex.sensiolabs.org/), but it is in no way meant to serve as a replacement for them. In fact, it's quite rudimentary in comparison! The goal is simply to provide a better way of working with Wordpress, whenever it makes sense to work with Wordpress.
 
@@ -54,14 +54,14 @@ That being said - does your site include more than a couple custom post types, m
 
 The best way to install Sketch will depend on the type of project you are installing it into.
 
-###Installing into Fresh Projects
+####Installing into Fresh Projects
 If you are installing Sketch into a Wordpress project that doesn't already have a `composer.json` file and `\vendor` directory, you can install Sketch in one step with [Composer](http://www.getcomposer.org). In your terminal, navigate to the root of your Wordpress project, and run the following command:
 
 * `composer create-project sketch/app -s dev your-app-name-goes-here --prefer-dist`
 
 Then, from inside your theme's `functions.php` file, or your plugin, or wherever you wish to instantiate Sketch, just require `path/to/sketch/index.php` and start building.
 
-###Installing into Projects That Already Use Composer
+####Installing into Projects That Already Use Composer
 If you are installing into a project that already has a `composer.json` file and a vendor directory, follow these steps:
 
  1. Either `git clone https://github.com/sketchwp/app.git` or download and unzip this Sketch sample app into the root of your project's directory.
@@ -127,7 +127,7 @@ If you need to add any actions associated with the menu (i.e., enqueueing public
 
 Define your menu classes like you see in the `app/menus` folder, and instantiate them in `index.php` by calling `$app->make('MyMenu')`;
 
-###Menu Routes
+####Menu Routes
 
 Sketch's menu router is primarily intended to create navigation for menu pages in the Wordpress admin backend. For now, it's not interested in creating front-end routes or "hijacking" Wordpress' native routing system. Instead, it's designed to play nicely with what's already there.
 
