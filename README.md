@@ -62,7 +62,7 @@ If you are installing Sketch into a Wordpress project that doesn't already have 
 Then, from inside your theme's `functions.php` file, or your plugin, or wherever you wish to instantiate Sketch, just require `path/to/sketch/index.php` and start building.
 
 ####Installing into Projects That Already Use Composer
-If you are installing into a project that already has a `composer.json` file and a vendor directory, follow these steps:
+If you are installing into a project that already has a `composer.json` file and a `\vendor` directory, follow these steps:
 
  1. Either `git clone https://github.com/sketchwp/app.git` or download and unzip this sample app into your project's root directory.
  2. Assuming Composer is already being required elsewhere, open `Sketch\app\bootstrap.php` and delete the first line: `require_once __DIR__.'/../vendor/autoload.php'`.
