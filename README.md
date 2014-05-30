@@ -55,7 +55,7 @@ That being said - does your site include more than a couple custom post types, m
 The best way to install Sketch will depend on the type of project you are installing it into.
 
 ####Installing into Fresh Projects
-If you are installing Sketch into a Wordpress project that doesn't already have a `composer.json` file and `\vendor` directory, you can install Sketch in one step with [Composer](http://www.getcomposer.org). In your terminal, navigate to the root of your Wordpress project, and run the following command:
+If you are installing Sketch into a Wordpress project that doesn't already have a `composer.json` file and `\vendor` directory, you can do it easily with [Composer](http://www.getcomposer.org). In your terminal, navigate to the root of your Wordpress project, and run the following command:
 
 * `composer create-project sketch/app -s dev your-app-name-goes-here --prefer-dist`
 
