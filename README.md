@@ -65,8 +65,7 @@ Then, from inside your theme's `functions.php` file, or your plugin, or wherever
 If you are installing into a project that already has a `composer.json` file and a `\vendor` directory, follow these steps:
 
  1. Either `git clone https://github.com/sketchwp/app.git` or download and unzip this sample app into your project's root directory.
- 2. Assuming Composer is already being required elsewhere, open `Sketch\app\bootstrap.php` and delete the first line: `require_once __DIR__.'/../vendor/autoload.php'`.
- 3. Add `"sketch/sketch": "dev-master"` to the "require" section of your `composer.json` file.
+ 2. Add `"sketch/sketch": "dev-master"` to the "require" section of your `composer.json` file.
  3. Run `composer update` from the command line. Feel free to include the `--no-dev` flag for a speedy installation that will omit PHPUnit, if you already have / don't need it.
  4. Like with the fresh install, require `path\to\sketch.index.php` from inside your `functions.php` file, plugin, or wherever you wish to instantiate Sketch.
 
