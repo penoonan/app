@@ -19,21 +19,22 @@ Sketch is primarily focused on making it easier to create menu pages where site 
 
  1. [What Makes Sketch Unique?](#what-makes-sketch-unique)
      * [When Should I Use Sketch](#when-should-i-use-sketch)
- 2. [Getting Started](#getting-started)
+ 2. [Installation](#installation)
+     * [For Fresh Projects](#installing-into-fresh-projects)
+     * [For Projects that already use composer](#installing-into-projects-that-already-use-composer)
  3. [Unit Testing](#unit-testing)
  4. [Controllers](#controllers)
  5. [Views](#views)
  6. [Models](#models)
- 7. [The Wp Wrapper](#the-wp-wrapper)
- 8. [Menus](#menus)
+ 7. [Menus](#menus)
      * [Menu Routes](#menu-routes)
- 9. [Custom Post Types](#custom-post-types)
- 10. [Metaboxes](#metaboxes)
- 11. [Taxonomies](#taxonomies)
- 12. [Validation](#validation)
- 13. [Service Providers](#service-providers)
- 14. [Breaking Changes and Backwards Compatibility](#breaking-changes-and-backwards-compatibility)
- 15. [Mad Props](#mad-props)
+ 8. [Custom Post Types](#custom-post-types)
+ 9. [Metaboxes](#metaboxes)
+ 10. [Taxonomies](#taxonomies)
+ 11. [Validation](#validation)
+ 12. [Service Providers](#service-providers)
+ 13. [Breaking Changes and Backwards Compatibility](#breaking-changes-and-backwards-compatibility)
+ 14. [Mad Props](#mad-props)
 
 ##What Makes Sketch Unique?
 
@@ -45,17 +46,29 @@ Sketch has a very small footprint. It's intended to be able to work well in envi
 
 Sketch is inspired by full stack PHP frameworks like [Laravel](http://laravel.com) and [Silex](http://silex.sensiolabs.org/), but it is in no way meant to serve as a replacement for them. In fact, it's quite rudimentary in comparison! The goal is simply to provide a better way of working with Wordpress, whenever it makes sense to work with Wordpress.
 
-So instead of asking, "when should I use Sketch?", the better question might be, "when should I use Wordpress?" Wordpress has many benefits, but it's foolish to ignore its limitations. Sketch can expand what you can do well with Wordpress, but it can't expand what Wordpress can do well.
+So instead of asking, "when should I use Sketch?", the better question might be, "[when should I use Wordpress](http://wordpress.stackexchange.com/questions/10594/when-should-we-not-recommend-a-client-use-wordpress/10596#10596)?" Wordpress has many benefits, but it's foolish to ignore its limitations. Sketch can expand what you can do well with Wordpress, but it can't expand what Wordpress can do well.
 
 That being said - does your site include more than a couple custom post types, metaboxes, taxonomies and/or settings pages? Does it interact with 3rd party APIs? Give Sketch a try!
 
-##Getting Started
+##Installation
 
-The best way to install Sketch is with [Composer](http://www.getcomposer.org). In your terminal, navigate to the root of your Wordpress project, and install Sketch with one command:
+The best way to install Sketch will depend on the type of project you are installing it into.
+
+###Installing into Fresh Projects
+If you are installing into a fresh installation of Wordpress, or an installation that doesn't already have a `composer.json` file and `\vendor` directory, feel free to just use [Composer](http://www.getcomposer.org). In your terminal, navigate to the root of your Wordpress project, and install Sketch with one command:
 
 * `composer create-project sketch/app -s dev your-app-name-goes-here --prefer-dist`
 
 Then, from inside your theme's `functions.php` file, or your plugin, or wherever you wish to instantiate Sketch, just require `path/to/sketch/index.php` and start building.
+
+###Installing into Projects That Already Use Composer
+If you are installing into a project that already has a `composer.json` file and a vendor directory, follow these steps:
+
+ 1. Either `git clone https://github.com/sketchwp/app.git` or download and unzip the Sketch sample app into the root of your project's directory.
+ 2. Assuming Composer is already being required elsewhere, open `Sketch\app\bootstrap.php` and delete the first line: `require_once __DIR__.'/../vendor/autoload.php'`.
+ 3. Add `"sketch/sketch": "dev-master"` to the "require" section of your `composer.json` file.
+ 3. Run `composer update` from the command line. Feel free to include the `--no-dev` flag for a speedy installation that will omit PHPUnit, if you already have / don't need it.
+ 4. Like with the fresh install, require `path\to\sketch.index.php` from inside your `functions.php` file, plugin, or wherever you wish to instantiate Sketch.
 
 ##Unit Testing
 
