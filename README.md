@@ -55,20 +55,20 @@ That being said - does your site include more than a couple custom post types, m
 The best way to install Sketch will depend on the type of project you are installing it into.
 
 ####Installing into Fresh Projects
-If you are installing Sketch into a Wordpress project that doesn't already have a `composer.json` file and `\vendor` directory, you can do it easily with [Composer](http://www.getcomposer.org). In your terminal, navigate to the root of your Wordpress project, and run the following command:
+If you are installing Sketch into a Wordpress project that doesn't already have a `composer.json` file and `/vendor` directory, you can do it easily with [Composer](http://www.getcomposer.org). In your terminal, navigate to the root of your Wordpress project, and run the following command:
 
 * `composer create-project sketch/app -s dev your-app-name-goes-here --prefer-dist`
 
 Then, from inside your theme's `functions.php` file, or your plugin, or wherever you wish to instantiate Sketch, just require `path/to/sketch/index.php` and start building.
 
 ####Installing into Projects That Already Use Composer
-If you are installing into a project that already has a `composer.json` file and a `\vendor` directory, follow these steps:
+If you are installing into a project that already has a `composer.json` file and a `/vendor` directory, follow these steps:
 
  1. Either `git clone https://github.com/sketchwp/app.git` or download and unzip this sample app into your project's root directory.
- 2. Assuming Composer is already being loaded elsewhere, remove the line that says `require_once __DIR__.'/../vendor/autoload.php';` from the top of `app\bootstrap.php` file. If Composer is not being loaded elsewhere, leave this line in place - but you will likely need to alter it to point to wherever your `\vendor` directory is.
+ 2. Assuming Composer is already being loaded elsewhere, remove the line that says `require_once __DIR__.'/../vendor/autoload.php';` from the top of `app/bootstrap.php` file. If Composer is not being loaded elsewhere, leave this line in place - but you will likely need to alter it to point to wherever your `/vendor` directory is.
  2. Add `"sketch/sketch": "dev-master"` to the "require" section of your `composer.json` file.
  3. Run `composer update`.
- 4. Like with the fresh install, require `path\to\sketch.index.php` from inside your `functions.php` file, plugin, or wherever you wish to instantiate Sketch.
+ 4. Like with the fresh install, require `path/to/sketch/index.php` from inside your `functions.php` file, plugin, or wherever you wish to instantiate Sketch.
 
 ##Unit Testing
 
