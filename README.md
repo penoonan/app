@@ -4,6 +4,7 @@ Sketch is a tiny framework for creating well-structured MVC applications in Word
 
 Sketch is primarily focused on making it easier to create menu pages where site admins can work with data, as well as custom post types, metaboxes, and taxonomies:
 
+```php
     $app = require_once 'app/bootstrap.php';
 
     // Add our sample menus and submenus
@@ -14,6 +15,7 @@ Sketch is primarily focused on making it easier to create menu pages where site 
     $app->make('HelloPostType')
         ->addMetabox($app->make('HelloMetabox'))
         ->addTaxonomy($app->make('HelloTaxonomy'));
+```
 
 ##Table of Contents
 
@@ -84,6 +86,7 @@ Sketch's default controllers come populated with an instance of the template sys
 
 Say you want to make a controller that grabs `page` from the query string (i.e., the menu slug) and passes it to the view. Here's how you would do that using Sketch's default controllers:
 
+```php
     Class HomeController extends \Sketch\WpBaseController {
 
         public function index()
@@ -95,6 +98,7 @@ Say you want to make a controller that grabs `page` from the query string (i.e.,
             $this->render('home', $data);
         }
     }
+```
 
 If you do not wish to use Sketch's default controllers, you don't have to! You can register a different controller type using a [service provider](#service-providers). Feel free to ask for help with this! The docs for that have not yet been written.
 
@@ -120,10 +124,12 @@ Normally when you create a Wordpress menu, you use the `add_menu_page()` functio
 
 If you need to add any actions associated with the menu (i.e., enqueueing public assets), override the menu's `addActions()` method, and add those actions there using the menu's `\Sketch\WpApiWrapper` instance. For example:
 
+```php
     protected function addActions()
     {
         $this->wp->wp_enqueue_script('my_script', 'path/to/my/script.js');
     }
+```
 
 Define your menu classes like you see in the `app/menus` folder, and instantiate them in `index.php` by calling `$app->make('MyMenu')`;
 
@@ -161,6 +167,7 @@ But wait - that's not all! In addition to defining standard metabox arguments as
 
 Here is code for the basic metabox that ships with the sample Sketch app:
 
+```php
     class HelloMetabox extends BaseMetabox {
         protected
             $id = 'hello_metabox',
@@ -168,9 +175,11 @@ Here is code for the basic metabox that ships with the sample Sketch app:
             $callback_controller = 'HelloController@metabox'
         ;
     }
+```
 
 Just like with menu routes, the metabox's controller is resolved out of the IoC container and has access to both the Symfony Request object and the Plates template system. In addition, (like all WordPress metaboxes) it will also be passed information about the currently displayed post, and the metabox itself. Here is our sample metabox controller:
 
+```php
     public function metabox($post, $metabox)
     {
         $data = [
@@ -179,12 +188,15 @@ Just like with menu routes, the metabox's controller is resolved out of the IoC 
         ];
         $this->render('hello::metabox', $data);
     }
+```
 
 There are two ways to instantiate this metabox in your application. The first is illustrated at the top of this page - by calling `->addMetabox($app->make('HelloMetabox'))` on the post type that the metabox should be added to. Note that, if you use this method, you do not need to set a `$post_type` parameter on the metabox itself. It will be set automatically when you add it to the post type object.
 
 The second method is to call the metabox's `->manuallyAddAction()` function after you've instantiated it in your Sketch app's `index.php` file. For example:
 
+```php
      $app->make('HelloMetabox')->manuallyAddAction();
+```
 
  If you use this method, then the `$post_type` parameter must be set. Otherwise, it won't display anywhere.
 
@@ -202,6 +214,7 @@ Service providers are a great place to put bootstrap code for third party servic
 
 Sketch service providers only need to implement one method: `register(\Sketch\Application $app)`. That method is a good place to register bindings on the application. For example:
 
+```php
     use \Sketch\Application;
     use \Sketch\ServiceProviderInterface;
 
@@ -214,21 +227,26 @@ Sketch service providers only need to implement one method: `register(\Sketch\Ap
             });
         }
     }
+```
 
 You may also pass in an array of configuration values as the second parameter of the register method:
 
+```php
     public function register(Application $app, $config) {
         $app->bind('FooInterface', function() use($config) {
             return new FooClass($config);
         });
     }
+```
 
 Register your service providers in `Sketch\index.php`, right next to where you instantiate menus, custom post types, etc. This is also where you would pass in those configuration values, if the situation called for it:
 
+```php
     $app = require_once 'app/bootstrap.php';
 
     $config = array('foo' => 'bar');
     $app->register(new MyProvider(), $config);
+```
 
 To see more service provider examples, look at the `app/bootstrap.php` file where the Plates template system and Sketch's default controller factory is registered.
 
