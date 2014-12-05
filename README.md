@@ -1,3 +1,5 @@
+##NOTE: This library is not currently maintained. Feel free to create a fork!
+
 #Sketch
 
 Sketch is a tiny framework for creating well-structured MVC applications in Wordpress. It provides a set of tools and a suggested architecture for building custom Wordpress functionality in a testable, loosely-coupled way.
