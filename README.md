@@ -1,4 +1,4 @@
-##NOTE: This library is not currently maintained. Feel free to create a fork!
+##NOTE: This library is not currently maintained. Probably don't use it. Feel free to fork!
 
 #Sketch
 
