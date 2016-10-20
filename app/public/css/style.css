@@ -5,7 +5,7 @@ button, button:focus, button:active {
     border: none;
     display: inline;
     font: inherit;
-    margin: 0;
+    margin: auto;
     padding: 0;
     outline: none;
     outline-offset: 0;
